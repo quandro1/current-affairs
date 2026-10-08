@@ -1,0 +1,479 @@
+{
+  "_doc": "Flame On impact engine. A rule fires only when its whole condition holds, so mentions without a meaningful connection do not trigger it. 'kind': cost | revenue | regulation | opportunity. 'direct': true = direct business-cost signal (adds personal.directBusiness points too). Location context: Abbottabad / Hazara (KP).",
+  "rules": [
+    {
+      "id": "fo-oil-up",
+      "kind": "cost",
+      "direct": true,
+      "when": {
+        "all": [
+          {
+            "field": "topics",
+            "op": "has",
+            "value": "in-oil"
+          },
+          {
+            "field": "direction",
+            "op": "eq",
+            "value": "up"
+          },
+          {
+            "any": [
+              {
+                "field": "countries",
+                "op": "has",
+                "value": "PK"
+              },
+              {
+                "field": "text",
+                "op": "matches",
+                "value": "\\b(palm oil|soybean oil|edible oil)\\b"
+              }
+            ]
+          }
+        ]
+      },
+      "text": "Possible increase in cooking-oil and ghee costs (frying, dough), which would squeeze product margins."
+    },
+    {
+      "id": "fo-flour-up",
+      "kind": "cost",
+      "direct": true,
+      "when": {
+        "all": [
+          {
+            "field": "topics",
+            "op": "has",
+            "value": "in-flour"
+          },
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "any": [
+              {
+                "field": "direction",
+                "op": "eq",
+                "value": "up"
+              },
+              {
+                "field": "text",
+                "op": "matches",
+                "value": "\\b(shortage|crisis|ban on (movement|transport)|support price)\\b"
+              }
+            ]
+          }
+        ]
+      },
+      "text": "Possible increase in flour costs, which affects pizza dough, buns and wraps."
+    },
+    {
+      "id": "fo-chicken-up",
+      "kind": "cost",
+      "direct": true,
+      "when": {
+        "all": [
+          {
+            "field": "topics",
+            "op": "has",
+            "value": "in-chicken"
+          },
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "any": [
+              {
+                "field": "direction",
+                "op": "eq",
+                "value": "up"
+              },
+              {
+                "field": "text",
+                "op": "matches",
+                "value": "\\b(shortage|bird flu|avian|feed prices?)\\b"
+              }
+            ]
+          }
+        ]
+      },
+      "text": "Possible increase in chicken costs, a core protein across the menu."
+    },
+    {
+      "id": "fo-dairy-up",
+      "kind": "cost",
+      "direct": true,
+      "when": {
+        "all": [
+          {
+            "field": "topics",
+            "op": "has",
+            "value": "in-dairy"
+          },
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "field": "direction",
+            "op": "eq",
+            "value": "up"
+          }
+        ]
+      },
+      "text": "Possible increase in cheese and dairy costs. Cheese is one of the most expensive pizza inputs."
+    },
+    {
+      "id": "fo-input-down",
+      "kind": "cost",
+      "direct": true,
+      "when": {
+        "all": [
+          {
+            "field": "topics",
+            "op": "hasAny",
+            "value": [
+              "in-oil",
+              "in-flour",
+              "in-chicken",
+              "in-dairy"
+            ]
+          },
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "field": "direction",
+            "op": "eq",
+            "value": "down"
+          }
+        ]
+      },
+      "text": "Possible easing of a food input cost. Worth checking against current supplier rates."
+    },
+    {
+      "id": "fo-fuel",
+      "kind": "cost",
+      "direct": true,
+      "when": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "field": "text",
+            "op": "matches",
+            "value": "\\b(petrol|diesel|HSD|LPG)\\b"
+          },
+          {
+            "field": "direction",
+            "op": "in",
+            "value": [
+              "up",
+              "down"
+            ]
+          }
+        ]
+      },
+      "text": "Fuel and LPG price changes affect delivery-rider costs, supplier transport charges and (for LPG) kitchen gas costs."
+    },
+    {
+      "id": "fo-electricity",
+      "kind": "cost",
+      "direct": true,
+      "when": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "field": "topics",
+            "op": "has",
+            "value": "energy"
+          },
+          {
+            "field": "text",
+            "op": "matches",
+            "value": "\\belectricity\\b|\\bpower tariff|\\bper unit\\b|\\bfuel (cost |charges? )?adjustment|\\bFCA\\b|\\bcommercial (consumers|tariff)|\\bload.?shedding"
+          }
+        ]
+      },
+      "text": "Electricity tariff or supply changes affect running costs for ovens, chillers, freezers and air-conditioning."
+    },
+    {
+      "id": "fo-gas",
+      "kind": "cost",
+      "direct": true,
+      "when": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "field": "text",
+            "op": "matches",
+            "value": "\\bgas (price|tariff|supply|shortage|load)|\\bOGRA\\b|\\bSNGPL\\b|\\bLPG\\b|\\bRLNG\\b"
+          }
+        ]
+      },
+      "text": "Gas price or supply changes affect kitchen operating costs and continuity."
+    },
+    {
+      "id": "fo-wages",
+      "kind": "cost",
+      "direct": true,
+      "when": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "field": "topics",
+            "op": "has",
+            "value": "labour"
+          },
+          {
+            "field": "text",
+            "op": "matches",
+            "value": "\\b(minimum wages?|wages?|EOBI|social security|labou?r laws?)\\b"
+          }
+        ]
+      },
+      "text": "Possible increase in labour costs or compliance requirements across restaurant staff."
+    },
+    {
+      "id": "fo-tax",
+      "kind": "regulation",
+      "direct": true,
+      "when": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "any": [
+              {
+                "field": "topics",
+                "op": "has",
+                "value": "pos"
+              },
+              {
+                "all": [
+                  {
+                    "field": "topics",
+                    "op": "has",
+                    "value": "tax"
+                  },
+                  {
+                    "field": "text",
+                    "op": "matches",
+                    "value": "\\b(restaurants?|food|hotels?|services|sales tax|GST|retail(ers)?|KPRA|PRA)\\b"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "text": "Tax or POS-integration changes can affect menu pricing, invoicing and compliance (FBR / KPRA)."
+    },
+    {
+      "id": "fo-food-safety",
+      "kind": "regulation",
+      "direct": true,
+      "when": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "field": "topics",
+            "op": "has",
+            "value": "food-safety"
+          }
+        ]
+      },
+      "text": "Food-authority actions or rule changes may set new inspection, hygiene or licensing expectations for restaurants."
+    },
+    {
+      "id": "fo-delivery",
+      "kind": "revenue",
+      "direct": false,
+      "when": {
+        "all": [
+          {
+            "field": "topics",
+            "op": "has",
+            "value": "food-delivery"
+          },
+          {
+            "any": [
+              {
+                "field": "countries",
+                "op": "has",
+                "value": "PK"
+              },
+              {
+                "field": "entities",
+                "op": "has",
+                "value": "foodpanda"
+              }
+            ]
+          }
+        ]
+      },
+      "text": "Delivery-platform changes (commissions, policies, competition) affect delivery revenue and margins."
+    },
+    {
+      "id": "fo-consumer",
+      "kind": "revenue",
+      "direct": false,
+      "when": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "any": [
+              {
+                "field": "topics",
+                "op": "has",
+                "value": "consumer-spending"
+              },
+              {
+                "all": [
+                  {
+                    "field": "topics",
+                    "op": "has",
+                    "value": "inflation"
+                  },
+                  {
+                    "field": "text",
+                    "op": "matches",
+                    "value": "\\b(CPI|SPI|inflation)\\b"
+                  },
+                  {
+                    "field": "urgency",
+                    "op": "in",
+                    "value": [
+                      "breaking",
+                      "major"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "text": "Changes in inflation or consumer spending affect how often customers eat out and how sensitive they are to price."
+    },
+    {
+      "id": "fo-tourism",
+      "kind": "revenue",
+      "direct": false,
+      "when": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "field": "topics",
+            "op": "hasAny",
+            "value": [
+              "tourism",
+              "hotels"
+            ]
+          },
+          {
+            "any": [
+              {
+                "field": "entities",
+                "op": "hasAny",
+                "value": [
+                  "abbottabad",
+                  "kp"
+                ]
+              },
+              {
+                "field": "text",
+                "op": "matches",
+                "value": "\\b(KP|Khyber|Galiyat|Murree|Naran|Kaghan|Hazara|northern areas|tourist season|snowfall)\\b"
+              }
+            ]
+          }
+        ]
+      },
+      "text": "Tourism and local developments in Hazara and the Galiyat affect footfall in the Abbottabad area."
+    },
+    {
+      "id": "fo-local-disruption",
+      "kind": "revenue",
+      "direct": false,
+      "when": {
+        "all": [
+          {
+            "field": "entities",
+            "op": "hasAny",
+            "value": [
+              "abbottabad",
+              "kp"
+            ]
+          },
+          {
+            "field": "text",
+            "op": "matches",
+            "value": "\\b(curfew|strike|shutter.?down|protests?|road (closed|blocked)|internet (suspen\\w+|shutdown)|section 144|landslides?|snowfall)\\b"
+          }
+        ]
+      },
+      "text": "Local disruption (protests, closures, internet suspension, weather) could affect operations and footfall."
+    },
+    {
+      "id": "fo-restaurant-industry-pk",
+      "kind": "opportunity",
+      "direct": false,
+      "when": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "field": "topics",
+            "op": "hasAny",
+            "value": [
+              "restaurants",
+              "restaurant-tech"
+            ]
+          }
+        ]
+      },
+      "text": "A development in Pakistan's restaurant industry. Worth knowing for competition and benchmarking."
+    }
+  ]
+}

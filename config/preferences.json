@@ -1,0 +1,193 @@
+{
+  "_doc": "Your notification + briefing settings. Edited from the app (More > Settings). Times are in 'timezone'.",
+  "timezone": "Asia/Karachi",
+  "severity": "critical+important",
+  "topics": {
+    "pakistan": true,
+    "world": true,
+    "geopolitics": true,
+    "economy": true,
+    "technology": true,
+    "hospitality": true,
+    "flameon": true
+  },
+  "quietHours": {
+    "enabled": true,
+    "start": "23:30",
+    "end": "07:30",
+    "criticalBypass": false
+  },
+  "limits": {
+    "maxPerHour": 3,
+    "maxPerDay": 12,
+    "maxAgeHours": 12,
+    "updateCooldownHours": 4
+  },
+  "daily": {
+    "enabled": true,
+    "time": "08:00",
+    "push": true
+  },
+  "evening": {
+    "enabled": true,
+    "time": "20:00",
+    "push": true
+  },
+  "weekly": {
+    "enabled": true,
+    "day": "sun",
+    "time": "09:00",
+    "push": true
+  },
+  "monthly": {
+    "enabled": true,
+    "day": 1,
+    "time": "09:00",
+    "push": true
+  },
+  "channels": {
+    "webpush": true,
+    "telegram": true
+  },
+  "watchlist": [
+    {
+      "id": "pk-economy",
+      "label": "Pakistan economy",
+      "match": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "field": "sections",
+            "op": "has",
+            "value": "economy"
+          }
+        ]
+      }
+    },
+    {
+      "id": "imf",
+      "label": "IMF",
+      "match": {
+        "field": "entities",
+        "op": "has",
+        "value": "imf"
+      }
+    },
+    {
+      "id": "pk-india",
+      "label": "Pakistan–India relations",
+      "match": {
+        "field": "countries",
+        "op": "hasAll",
+        "value": [
+          "PK",
+          "IN"
+        ]
+      }
+    },
+    {
+      "id": "middle-east",
+      "label": "Middle East",
+      "match": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "hasAny",
+            "value": [
+              "IR",
+              "IL",
+              "SA",
+              "AE",
+              "QA",
+              "LB",
+              "SY",
+              "YE",
+              "IQ",
+              "PS",
+              "ME"
+            ]
+          },
+          {
+            "field": "topics",
+            "op": "hasAny",
+            "value": [
+              "conflict",
+              "diplomacy",
+              "sanctions",
+              "oil"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "oil",
+      "label": "Oil prices",
+      "match": {
+        "field": "topics",
+        "op": "has",
+        "value": "oil"
+      }
+    },
+    {
+      "id": "ai",
+      "label": "AI",
+      "match": {
+        "field": "topics",
+        "op": "has",
+        "value": "ai"
+      }
+    },
+    {
+      "id": "openai",
+      "label": "OpenAI",
+      "match": {
+        "field": "entities",
+        "op": "has",
+        "value": "openai"
+      }
+    },
+    {
+      "id": "china",
+      "label": "China",
+      "match": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "CN"
+          },
+          {
+            "field": "topics",
+            "op": "hasAny",
+            "value": [
+              "conflict",
+              "diplomacy",
+              "trade",
+              "sanctions",
+              "semiconductors",
+              "pk-economy"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "restaurants",
+      "label": "Restaurant industry",
+      "match": {
+        "field": "topics",
+        "op": "hasAny",
+        "value": [
+          "restaurants",
+          "food-delivery",
+          "food-safety"
+        ]
+      }
+    }
+  ]
+}

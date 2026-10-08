@@ -1,0 +1,707 @@
+{
+  "_doc": "'Why it matters' template library. These are PREDEFINED GENERAL STATEMENTS shown as 'Rule-based context', never presented as analysis of the specific story. First matching templates win (max 2 per story). Add new ones freely; 'when' uses the rule language.",
+  "maxPerStory": 2,
+  "templates": [
+    {
+      "id": "pk-imf-agreement",
+      "when": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "field": "topics",
+            "op": "has",
+            "value": "imf"
+          },
+          {
+            "field": "text",
+            "op": "matches",
+            "value": "\\b(agree\\w*|staff-level|tranche|approv\\w*|disburse\\w*|board)\\b"
+          }
+        ]
+      },
+      "text": "IMF agreements and disbursements may affect Pakistan's external financing, investor confidence, government finances and exchange-rate expectations. IMF programmes usually come with conditions such as tax and energy-price measures."
+    },
+    {
+      "id": "pk-imf-general",
+      "when": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "field": "topics",
+            "op": "has",
+            "value": "imf"
+          }
+        ]
+      },
+      "text": "IMF talks shape Pakistan's budget, taxes and energy tariffs, because programme conditions are often passed on to consumers and businesses."
+    },
+    {
+      "id": "pk-rate-up",
+      "when": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "field": "topics",
+            "op": "has",
+            "value": "interest-rates"
+          },
+          {
+            "field": "direction",
+            "op": "eq",
+            "value": "up"
+          }
+        ]
+      },
+      "text": "A higher policy rate may raise borrowing costs, slow business investment and consumer spending, and is aimed at cooling inflation."
+    },
+    {
+      "id": "pk-rate-down",
+      "when": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "field": "topics",
+            "op": "has",
+            "value": "interest-rates"
+          },
+          {
+            "field": "direction",
+            "op": "eq",
+            "value": "down"
+          }
+        ]
+      },
+      "text": "A lower policy rate may reduce borrowing costs and support business investment and consumer spending; it can also add pressure on inflation and the rupee."
+    },
+    {
+      "id": "pk-rate-general",
+      "when": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "field": "topics",
+            "op": "has",
+            "value": "interest-rates"
+          }
+        ]
+      },
+      "text": "The policy rate sets the cost of credit for businesses and households and is the State Bank's main tool against inflation."
+    },
+    {
+      "id": "pk-oil-up",
+      "when": {
+        "all": [
+          {
+            "field": "topics",
+            "op": "has",
+            "value": "oil"
+          },
+          {
+            "field": "direction",
+            "op": "eq",
+            "value": "up"
+          },
+          {
+            "any": [
+              {
+                "field": "countries",
+                "op": "has",
+                "value": "PK"
+              },
+              {
+                "field": "majorCountry",
+                "op": "eq",
+                "value": true
+              }
+            ]
+          }
+        ]
+      },
+      "text": "Higher oil prices can raise Pakistan's import bill, transport costs and inflationary pressure, since Pakistan imports most of its oil."
+    },
+    {
+      "id": "pk-oil-down",
+      "when": {
+        "all": [
+          {
+            "field": "topics",
+            "op": "has",
+            "value": "oil"
+          },
+          {
+            "field": "direction",
+            "op": "eq",
+            "value": "down"
+          }
+        ]
+      },
+      "text": "Lower oil prices can ease Pakistan's import bill and transport costs, and may feed through to domestic fuel prices at the next revision."
+    },
+    {
+      "id": "pk-rupee-weak",
+      "when": {
+        "all": [
+          {
+            "field": "topics",
+            "op": "has",
+            "value": "currency"
+          },
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "field": "text",
+            "op": "matches",
+            "value": "\\b(depreciat\\w*|weaken\\w*|falls|slides|loses|devalu\\w*|record low)\\b"
+          }
+        ]
+      },
+      "text": "A weaker rupee makes imports - fuel, edible oil, machinery - more expensive and can feed inflation."
+    },
+    {
+      "id": "pk-rupee-strong",
+      "when": {
+        "all": [
+          {
+            "field": "topics",
+            "op": "has",
+            "value": "currency"
+          },
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "field": "text",
+            "op": "matches",
+            "value": "\\b(appreciat\\w*|strengthen\\w*|gains|rises|recovers)\\b"
+          }
+        ]
+      },
+      "text": "A stronger rupee lowers the cost of imports and can ease inflation, though it may hurt exporters."
+    },
+    {
+      "id": "pk-inflation-up",
+      "when": {
+        "all": [
+          {
+            "field": "topics",
+            "op": "has",
+            "value": "inflation"
+          },
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "field": "direction",
+            "op": "eq",
+            "value": "up"
+          }
+        ]
+      },
+      "text": "Rising inflation reduces household purchasing power and makes a policy-rate cut less likely."
+    },
+    {
+      "id": "pk-inflation-down",
+      "when": {
+        "all": [
+          {
+            "field": "topics",
+            "op": "has",
+            "value": "inflation"
+          },
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "field": "direction",
+            "op": "eq",
+            "value": "down"
+          }
+        ]
+      },
+      "text": "Easing inflation supports purchasing power and gives the State Bank room to cut rates."
+    },
+    {
+      "id": "pk-reserves",
+      "when": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "field": "text",
+            "op": "matches",
+            "value": "\\b(reserves|remittances?)\\b"
+          }
+        ]
+      },
+      "text": "Foreign-exchange reserves and remittances determine how comfortably Pakistan can pay for imports and service external debt."
+    },
+    {
+      "id": "pk-rating",
+      "when": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "field": "entities",
+            "op": "has",
+            "value": "moodys"
+          }
+        ]
+      },
+      "text": "Credit-rating changes affect what Pakistan pays to borrow internationally and how foreign investors view the country."
+    },
+    {
+      "id": "pk-tax",
+      "when": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "field": "topics",
+            "op": "has",
+            "value": "tax"
+          },
+          {
+            "field": "urgency",
+            "op": "in",
+            "value": [
+              "breaking",
+              "major"
+            ]
+          }
+        ]
+      },
+      "text": "Tax measures change costs for businesses and consumers; new levies are often linked to revenue targets agreed with the IMF."
+    },
+    {
+      "id": "pk-energy-tariff",
+      "when": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "field": "topics",
+            "op": "has",
+            "value": "energy"
+          },
+          {
+            "field": "direction",
+            "op": "in",
+            "value": [
+              "up",
+              "down"
+            ]
+          }
+        ]
+      },
+      "text": "Electricity and gas tariffs feed directly into household bills and business operating costs."
+    },
+    {
+      "id": "pk-india",
+      "when": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "hasAll",
+            "value": [
+              "PK",
+              "IN"
+            ]
+          },
+          {
+            "field": "topics",
+            "op": "hasAny",
+            "value": [
+              "conflict",
+              "security",
+              "diplomacy",
+              "nuclear"
+            ]
+          }
+        ]
+      },
+      "text": "Pakistan-India tensions can affect security, markets and airspace. Both countries are nuclear-armed, so escalation risk is watched closely."
+    },
+    {
+      "id": "pk-afghanistan",
+      "when": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "hasAll",
+            "value": [
+              "PK",
+              "AF"
+            ]
+          }
+        ]
+      },
+      "text": "Relations with Afghanistan affect border security, militancy in KP and Balochistan, and cross-border trade."
+    },
+    {
+      "id": "pk-security",
+      "when": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "field": "topics",
+            "op": "has",
+            "value": "security"
+          },
+          {
+            "field": "urgency",
+            "op": "eq",
+            "value": "breaking"
+          }
+        ]
+      },
+      "text": "Major security incidents can lead to road closures, internet suspensions and tighter security in affected areas."
+    },
+    {
+      "id": "pk-china-cpec",
+      "when": {
+        "any": [
+          {
+            "field": "entities",
+            "op": "has",
+            "value": "cpec"
+          },
+          {
+            "all": [
+              {
+                "field": "countries",
+                "op": "hasAll",
+                "value": [
+                  "PK",
+                  "CN"
+                ]
+              },
+              {
+                "field": "topics",
+                "op": "hasAny",
+                "value": [
+                  "pk-economy",
+                  "infrastructure",
+                  "trade",
+                  "debt"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "text": "China is Pakistan's largest bilateral lender and CPEC partner, so these developments touch on financing, energy projects and infrastructure."
+    },
+    {
+      "id": "pk-gulf-money",
+      "when": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "field": "countries",
+            "op": "hasAny",
+            "value": [
+              "SA",
+              "AE",
+              "QA"
+            ]
+          },
+          {
+            "field": "topics",
+            "op": "hasAny",
+            "value": [
+              "pk-economy",
+              "debt",
+              "trade",
+              "oil"
+            ]
+          }
+        ]
+      },
+      "text": "Gulf deposits, deferred-oil facilities and investment are a major support for Pakistan's external accounts."
+    },
+    {
+      "id": "mideast-shipping",
+      "when": {
+        "all": [
+          {
+            "field": "topics",
+            "op": "has",
+            "value": "conflict"
+          },
+          {
+            "field": "text",
+            "op": "matches",
+            "value": "\\b(Hormuz|Red Sea|tankers?|shipping|Gulf of|strait)\\b"
+          }
+        ]
+      },
+      "text": "Disruption to Gulf shipping routes can raise oil and freight costs worldwide. Pakistan imports most of its oil and LNG through these routes."
+    },
+    {
+      "id": "mideast-conflict",
+      "when": {
+        "all": [
+          {
+            "field": "topics",
+            "op": "has",
+            "value": "conflict"
+          },
+          {
+            "field": "countries",
+            "op": "hasAny",
+            "value": [
+              "IR",
+              "IL",
+              "SA",
+              "AE",
+              "QA",
+              "LB",
+              "SY",
+              "YE",
+              "IQ",
+              "PS"
+            ]
+          }
+        ]
+      },
+      "text": "Middle East escalations can move oil prices and affect the millions of Pakistani workers in the Gulf whose remittances support the economy."
+    },
+    {
+      "id": "iran-sanctions",
+      "when": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "IR"
+          },
+          {
+            "field": "topics",
+            "op": "has",
+            "value": "sanctions"
+          }
+        ]
+      },
+      "text": "Sanctions on Iran affect regional energy flows and Pakistan's border trade and stalled gas-pipeline project."
+    },
+    {
+      "id": "fed-rates",
+      "when": {
+        "all": [
+          {
+            "field": "entities",
+            "op": "has",
+            "value": "fed"
+          },
+          {
+            "field": "topics",
+            "op": "has",
+            "value": "interest-rates"
+          }
+        ]
+      },
+      "text": "US Federal Reserve decisions move the dollar and global borrowing costs, which affects emerging-market currencies including the rupee."
+    },
+    {
+      "id": "us-tariffs",
+      "when": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "US"
+          },
+          {
+            "field": "text",
+            "op": "matches",
+            "value": "\\btariffs?\\b"
+          }
+        ]
+      },
+      "text": "US tariff changes affect global trade flows and can hit Pakistan's exports, especially textiles, directly or through supply chains."
+    },
+    {
+      "id": "gold-move",
+      "when": {
+        "all": [
+          {
+            "field": "topics",
+            "op": "has",
+            "value": "gold"
+          },
+          {
+            "field": "direction",
+            "op": "in",
+            "value": [
+              "up",
+              "down"
+            ]
+          }
+        ]
+      },
+      "text": "Gold moves with global risk sentiment and the dollar. In Pakistan, the per-tola rate is a widely watched savings benchmark."
+    },
+    {
+      "id": "ai-regulation",
+      "when": {
+        "all": [
+          {
+            "field": "topics",
+            "op": "has",
+            "value": "ai"
+          },
+          {
+            "field": "text",
+            "op": "matches",
+            "value": "\\b(regulat\\w*|laws?|act|bans?|banned|rules|executive order|copyright|lawsuits?)\\b"
+          }
+        ]
+      },
+      "text": "AI regulation decisions shape what tools businesses can use and how quickly new capabilities spread."
+    },
+    {
+      "id": "ai-model",
+      "when": {
+        "all": [
+          {
+            "field": "topics",
+            "op": "has",
+            "value": "ai"
+          },
+          {
+            "field": "text",
+            "op": "matches",
+            "value": "\\b(launch\\w*|releas\\w*|unveil\\w*|introduc\\w*|new model|GPT|Gemini|Claude)\\b"
+          }
+        ]
+      },
+      "text": "Major AI model releases change what everyday software, including business and customer-service tools, can do."
+    },
+    {
+      "id": "chips",
+      "when": {
+        "all": [
+          {
+            "field": "topics",
+            "op": "has",
+            "value": "semiconductors"
+          },
+          {
+            "field": "text",
+            "op": "matches",
+            "value": "\\b(export controls?|bans?|banned|restrict\\w*|sanction\\w*|tariffs?|shortages?)\\b"
+          }
+        ]
+      },
+      "text": "Chip export controls and shortages affect device prices and the US-China technology contest."
+    },
+    {
+      "id": "cyber-pk",
+      "when": {
+        "all": [
+          {
+            "field": "topics",
+            "op": "has",
+            "value": "cyber"
+          },
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          }
+        ]
+      },
+      "text": "Cyber incidents in Pakistan can disrupt banking, payments and government services."
+    },
+    {
+      "id": "pk-tourism",
+      "when": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "field": "topics",
+            "op": "hasAny",
+            "value": [
+              "tourism",
+              "hotels",
+              "airlines"
+            ]
+          }
+        ]
+      },
+      "text": "Tourism and travel developments affect footfall in hospitality areas such as the Galiyat and Hazara."
+    },
+    {
+      "id": "generic-conflict",
+      "when": {
+        "all": [
+          {
+            "field": "topics",
+            "op": "has",
+            "value": "conflict"
+          },
+          {
+            "field": "majorCountry",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "text": "Conflicts involving major powers can move energy prices, markets and diplomatic alignments that Pakistan has to navigate."
+    }
+  ]
+}

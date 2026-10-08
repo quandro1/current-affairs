@@ -1,0 +1,94 @@
+# The whole backend: a scheduled run every 15 minutes on GitHub's free runners.
+# State (SQLite) lives on the `data` branch as a single force-pushed commit; the site is deployed to GitHub Pages.
+name: pipeline
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+    inputs:
+      test_url:
+        description: 'Feed URL to test (result appears in System health)'
+        required: false
+        default: ''
+      test_push:
+        description: 'Send a test notification (true/false)'
+        required: false
+        default: 'false'
+  push:
+    branches: [main]
+    paths: ['config/**', 'app/**', 'src/**', 'scripts/**', '.github/workflows/pipeline.yml']
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pipeline
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci --no-audit --no-fund
+
+      - name: Restore database from the data branch
+        run: |
+          mkdir -p state
+          if git fetch --depth=1 origin data 2>/dev/null; then
+            git show origin/data:intel.db.gz | gunzip > state/intel.db && echo "restored $(du -h state/intel.db | cut -f1)"
+          else
+            echo "no data branch yet: first run"
+          fi
+
+      - name: Validate config
+        run: node scripts/validate-config.js
+
+      - name: Run pipeline
+        env:
+          VAPID_PRIVATE_KEY: ${{ secrets.VAPID_PRIVATE_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TEST_FEED_URL: ${{ github.event.inputs.test_url }}
+          TEST_PUSH: ${{ github.event.inputs.test_push }}
+        run: node scripts/run.js
+
+      - name: Save database to the data branch
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          [ -f state/intel.db ] || exit 0
+          mkdir -p /tmp/st && gzip -9 -c state/intel.db > /tmp/st/intel.db.gz
+          cd /tmp/st
+          git init -q -b data
+          git add intel.db.gz
+          git -c user.name="pipeline" -c user.email="pipeline@users.noreply.github.com" commit -qm "state $(date -u +%FT%TZ)"
+          git push -qf "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git" data
+
+      - name: Build site
+        run: |
+          mkdir -p _site
+          cp -r app/. _site/
+          cp -r public/data _site/data
+          rm -f _site/_frame.html
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - id: deploy
+        uses: actions/deploy-pages@v4

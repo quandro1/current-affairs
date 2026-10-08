@@ -1,0 +1,4 @@
+{
+  "_doc": "Devices that receive Web Push. Written by the app (Settings > Notifications) through the GitHub API with your admin token. Not published to the site.",
+  "subscriptions": []
+}

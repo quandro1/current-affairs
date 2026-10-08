@@ -1,0 +1,110 @@
+{
+  "_doc": "News sources. tier: 1 primary/official, 2 high-quality, 3 specialist, 4 low-confidence. tier 'publisher' = aggregator whose items are tiered by the ORIGINAL publisher via publishers.json. everyMin = minimum minutes between fetches. Edit from the app (More > Sources) or by hand; run `npm run validate` after hand edits.",
+  "sources": [
+    { "id": "dawn", "name": "Dawn", "homepage": "https://www.dawn.com", "country": "PK", "type": "newspaper", "tier": 2, "active": true,
+      "feeds": [
+        { "id": "dawn-home", "url": "https://www.dawn.com/feeds/home", "category": "pakistan", "defaultCountry": null, "everyMin": 15 },
+        { "id": "dawn-pakistan", "url": "https://www.dawn.com/feeds/pakistan", "category": "pakistan", "defaultCountry": "PK", "everyMin": 15 },
+        { "id": "dawn-business", "url": "https://www.dawn.com/feeds/business", "category": "economy", "defaultCountry": "PK", "everyMin": 15 },
+        { "id": "dawn-world", "url": "https://www.dawn.com/feeds/world", "category": "world", "defaultCountry": null, "everyMin": 30 }
+      ] },
+    { "id": "tribune", "name": "The Express Tribune", "homepage": "https://tribune.com.pk", "country": "PK", "type": "newspaper", "tier": 2, "active": true,
+      "feeds": [
+        { "id": "tribune-pakistan", "url": "https://tribune.com.pk/feed/pakistan", "category": "pakistan", "defaultCountry": "PK", "everyMin": 15 },
+        { "id": "tribune-business", "url": "https://tribune.com.pk/feed/business", "category": "economy", "defaultCountry": "PK", "everyMin": 15 }
+      ] },
+    { "id": "brecorder", "name": "Business Recorder", "homepage": "https://www.brecorder.com", "country": "PK", "type": "business-newspaper", "tier": 2, "active": true,
+      "feeds": [ { "id": "brecorder-latest", "url": "https://www.brecorder.com/feeds/latest-news", "category": "economy", "defaultCountry": null, "everyMin": 15 } ] },
+    { "id": "geo", "name": "Geo News", "homepage": "https://www.geo.tv", "country": "PK", "type": "broadcaster", "tier": 2, "active": true,
+      "feeds": [ { "id": "geo-latest", "url": "https://www.geo.tv/rss/1/1", "category": "pakistan", "defaultCountry": null, "everyMin": 15 } ] },
+    { "id": "thenews", "name": "The News International", "homepage": "https://www.thenews.com.pk", "country": "PK", "type": "newspaper", "tier": 2, "active": true,
+      "feeds": [ { "id": "thenews-latest", "url": "https://www.thenews.com.pk/rss/1/1", "category": "pakistan", "defaultCountry": null, "everyMin": 20 } ] },
+    { "id": "app", "name": "APP (Associated Press of Pakistan)", "homepage": "https://www.app.com.pk", "country": "PK", "type": "state-news-agency", "tier": 2, "active": true,
+      "feeds": [ { "id": "app-latest", "url": "https://www.app.com.pk/feed/", "category": "pakistan", "defaultCountry": "PK", "everyMin": 20 } ] },
+
+    { "id": "bbc", "name": "BBC News", "homepage": "https://www.bbc.com/news", "country": "GB", "type": "broadcaster", "tier": 2, "active": true,
+      "feeds": [
+        { "id": "bbc-world", "url": "https://feeds.bbci.co.uk/news/world/rss.xml", "category": "world", "defaultCountry": null, "everyMin": 15 },
+        { "id": "bbc-asia", "url": "https://feeds.bbci.co.uk/news/world/asia/rss.xml", "category": "world", "defaultCountry": null, "everyMin": 20 },
+        { "id": "bbc-mideast", "url": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml", "category": "geopolitics", "defaultCountry": null, "everyMin": 20 },
+        { "id": "bbc-business", "url": "https://feeds.bbci.co.uk/news/business/rss.xml", "category": "economy", "defaultCountry": null, "everyMin": 30 },
+        { "id": "bbc-tech", "url": "https://feeds.bbci.co.uk/news/technology/rss.xml", "category": "technology", "defaultCountry": null, "everyMin": 60 }
+      ] },
+    { "id": "guardian", "name": "The Guardian", "homepage": "https://www.theguardian.com", "country": "GB", "type": "newspaper", "tier": 2, "active": true,
+      "feeds": [
+        { "id": "guardian-world", "url": "https://www.theguardian.com/world/rss", "category": "world", "defaultCountry": null, "everyMin": 20 },
+        { "id": "guardian-business", "url": "https://www.theguardian.com/business/rss", "category": "economy", "defaultCountry": null, "everyMin": 30 }
+      ] },
+    { "id": "nyt", "name": "The New York Times", "homepage": "https://www.nytimes.com", "country": "US", "type": "newspaper", "tier": 2, "active": true,
+      "feeds": [ { "id": "nyt-world", "url": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml", "category": "world", "defaultCountry": null, "everyMin": 30 } ] },
+    { "id": "ft", "name": "Financial Times", "homepage": "https://www.ft.com", "country": "GB", "type": "newspaper", "tier": 2, "active": true,
+      "feeds": [ { "id": "ft-world", "url": "https://www.ft.com/world?format=rss", "category": "world", "defaultCountry": null, "everyMin": 30 } ] },
+    { "id": "aljazeera", "name": "Al Jazeera", "homepage": "https://www.aljazeera.com", "country": "QA", "type": "broadcaster", "tier": 2, "active": true,
+      "feeds": [ { "id": "aljazeera-all", "url": "https://www.aljazeera.com/xml/rss/all.xml", "category": "geopolitics", "defaultCountry": null, "everyMin": 20 } ] },
+    { "id": "france24", "name": "France 24", "homepage": "https://www.france24.com/en/", "country": "FR", "type": "broadcaster", "tier": 2, "active": true,
+      "feeds": [ { "id": "france24-all", "url": "https://www.france24.com/en/rss", "category": "world", "defaultCountry": null, "everyMin": 30 } ] },
+    { "id": "dw", "name": "DW", "homepage": "https://www.dw.com/en", "country": "DE", "type": "broadcaster", "tier": 2, "active": true,
+      "feeds": [ { "id": "dw-all", "url": "https://rss.dw.com/rdf/rss-en-all", "category": "world", "defaultCountry": null, "everyMin": 30 } ] },
+    { "id": "cnbc", "name": "CNBC", "homepage": "https://www.cnbc.com", "country": "US", "type": "business-broadcaster", "tier": 2, "active": true,
+      "feeds": [
+        { "id": "cnbc-world", "url": "https://www.cnbc.com/id/100727362/device/rss/rss.html", "category": "economy", "defaultCountry": null, "everyMin": 30 },
+        { "id": "cnbc-economy", "url": "https://www.cnbc.com/id/20910258/device/rss/rss.html", "category": "economy", "defaultCountry": null, "everyMin": 30 }
+      ] },
+    { "id": "economist", "name": "The Economist", "homepage": "https://www.economist.com", "country": "GB", "type": "magazine", "tier": 2, "active": true,
+      "feeds": [ { "id": "economist-finance", "url": "https://www.economist.com/finance-and-economics/rss.xml", "category": "economy", "defaultCountry": null, "everyMin": 120 } ] },
+    { "id": "scmp", "name": "South China Morning Post", "homepage": "https://www.scmp.com", "country": "CN", "type": "newspaper", "tier": 2, "active": true,
+      "feeds": [ { "id": "scmp-china", "url": "https://www.scmp.com/rss/91/feed", "category": "geopolitics", "defaultCountry": "CN", "everyMin": 60 } ] },
+    { "id": "thehindu", "name": "The Hindu", "homepage": "https://www.thehindu.com", "country": "IN", "type": "newspaper", "tier": 2, "active": true,
+      "feeds": [ { "id": "thehindu-intl", "url": "https://www.thehindu.com/news/international/feeder/default.rss", "category": "world", "defaultCountry": null, "everyMin": 60 } ] },
+    { "id": "ndtv", "name": "NDTV", "homepage": "https://www.ndtv.com", "country": "IN", "type": "broadcaster", "tier": 3, "active": true,
+      "feeds": [ { "id": "ndtv-top", "url": "https://feeds.feedburner.com/ndtvnews-top-stories", "category": "world", "defaultCountry": "IN", "everyMin": 30 } ] },
+    { "id": "ariana", "name": "Ariana News", "homepage": "https://www.ariananews.af", "country": "AF", "type": "broadcaster", "tier": 3, "active": true,
+      "feeds": [ { "id": "ariana-all", "url": "https://www.ariananews.af/feed/", "category": "geopolitics", "defaultCountry": "AF", "everyMin": 60 } ] },
+    { "id": "mee", "name": "Middle East Eye", "homepage": "https://www.middleeasteye.net", "country": "GB", "type": "news-site", "tier": 3, "active": true,
+      "feeds": [ { "id": "mee-all", "url": "https://www.middleeasteye.net/rss", "category": "geopolitics", "defaultCountry": null, "everyMin": 60 } ] },
+    { "id": "arabnews", "name": "Arab News", "homepage": "https://www.arabnews.com", "country": "SA", "type": "newspaper", "tier": 3, "active": true,
+      "feeds": [ { "id": "arabnews-all", "url": "https://www.arabnews.com/rss.xml", "category": "geopolitics", "defaultCountry": null, "everyMin": 60 } ] },
+    { "id": "moscowtimes", "name": "The Moscow Times", "homepage": "https://www.themoscowtimes.com", "country": "RU", "type": "news-site", "tier": 3, "active": true,
+      "feeds": [ { "id": "moscowtimes-news", "url": "https://www.themoscowtimes.com/rss/news", "category": "geopolitics", "defaultCountry": "RU", "everyMin": 120 } ] },
+    { "id": "oilprice", "name": "OilPrice.com", "homepage": "https://oilprice.com", "country": "US", "type": "specialist", "tier": 3, "active": true,
+      "feeds": [ { "id": "oilprice-main", "url": "https://oilprice.com/rss/main", "category": "economy", "defaultCountry": null, "everyMin": 60 } ] },
+
+    { "id": "un", "name": "UN News", "homepage": "https://news.un.org", "country": "INTL", "type": "international-organization", "tier": 1, "active": true,
+      "feeds": [ { "id": "un-all", "url": "https://news.un.org/feed/subscribe/en/news/all/rss.xml", "category": "geopolitics", "defaultCountry": null, "everyMin": 60 } ] },
+    { "id": "openai", "name": "OpenAI (official)", "homepage": "https://openai.com/news", "country": "US", "type": "official-company", "tier": 1, "active": true,
+      "feeds": [ { "id": "openai-news", "url": "https://openai.com/news/rss.xml", "category": "technology", "defaultCountry": null, "everyMin": 120 } ] },
+    { "id": "google-ai", "name": "Google AI Blog (official)", "homepage": "https://blog.google/technology/ai/", "country": "US", "type": "official-company", "tier": 1, "active": true,
+      "feeds": [ { "id": "google-ai", "url": "https://blog.google/technology/ai/rss/", "category": "technology", "defaultCountry": null, "everyMin": 120 } ] },
+
+    { "id": "techcrunch", "name": "TechCrunch", "homepage": "https://techcrunch.com", "country": "US", "type": "specialist", "tier": 3, "active": true,
+      "feeds": [ { "id": "techcrunch-all", "url": "https://techcrunch.com/feed/", "category": "technology", "defaultCountry": null, "everyMin": 60 } ] },
+    { "id": "verge", "name": "The Verge", "homepage": "https://www.theverge.com", "country": "US", "type": "specialist", "tier": 3, "active": true,
+      "feeds": [ { "id": "verge-all", "url": "https://www.theverge.com/rss/index.xml", "category": "technology", "defaultCountry": null, "everyMin": 60 } ] },
+    { "id": "ars", "name": "Ars Technica", "homepage": "https://arstechnica.com", "country": "US", "type": "specialist", "tier": 3, "active": true,
+      "feeds": [ { "id": "ars-all", "url": "https://feeds.arstechnica.com/arstechnica/index", "category": "technology", "defaultCountry": null, "everyMin": 60 } ] },
+    { "id": "mittr", "name": "MIT Technology Review", "homepage": "https://www.technologyreview.com", "country": "US", "type": "specialist", "tier": 3, "active": true,
+      "feeds": [ { "id": "mittr-all", "url": "https://www.technologyreview.com/feed/", "category": "technology", "defaultCountry": null, "everyMin": 120 } ] },
+
+    { "id": "skift", "name": "Skift", "homepage": "https://skift.com", "country": "US", "type": "industry", "tier": 3, "active": true,
+      "feeds": [ { "id": "skift-all", "url": "https://skift.com/feed/", "category": "hospitality", "defaultCountry": null, "everyMin": 120 } ] },
+    { "id": "nrn", "name": "Nation's Restaurant News", "homepage": "https://www.nrn.com", "country": "US", "type": "industry", "tier": 3, "active": true,
+      "feeds": [ { "id": "nrn-all", "url": "https://www.nrn.com/rss.xml", "category": "hospitality", "defaultCountry": "US", "everyMin": 120 } ] },
+
+    { "id": "gnews", "name": "Google News (search feeds)", "homepage": "https://news.google.com", "country": "INTL", "type": "aggregator", "tier": "publisher", "active": true,
+      "_note": "Discovery only. Each item is credited and tiered by its ORIGINAL publisher (publishers.json); unknown publishers are tier 4 (unverified).",
+      "feeds": [
+        { "id": "gn-sbp", "kind": "gnews", "query": "\"State Bank of Pakistan\" when:2d", "category": "economy", "defaultCountry": "PK", "everyMin": 30 },
+        { "id": "gn-pk-imf", "kind": "gnews", "query": "Pakistan IMF when:2d", "category": "economy", "defaultCountry": "PK", "everyMin": 30 },
+        { "id": "gn-pk-reuters", "kind": "gnews", "query": "Pakistan site:reuters.com when:2d", "category": "pakistan", "defaultCountry": "PK", "everyMin": 30 },
+        { "id": "gn-pk-ap", "kind": "gnews", "query": "Pakistan site:apnews.com when:2d", "category": "pakistan", "defaultCountry": "PK", "everyMin": 60 },
+        { "id": "gn-pk-fuel", "kind": "gnews", "query": "Pakistan (petrol OR diesel OR LPG) price when:2d", "category": "economy", "defaultCountry": "PK", "everyMin": 60 },
+        { "id": "gn-pk-power", "kind": "gnews", "query": "Pakistan (NEPRA OR OGRA OR \"electricity tariff\" OR \"gas price\") when:2d", "category": "economy", "defaultCountry": "PK", "everyMin": 60 },
+        { "id": "gn-pk-food", "kind": "gnews", "query": "Pakistan (flour OR wheat OR chicken OR poultry OR \"cooking oil\" OR ghee) price when:3d", "category": "economy", "defaultCountry": "PK", "everyMin": 120 },
+        { "id": "gn-pk-labour-tax", "kind": "gnews", "query": "Pakistan (\"minimum wage\" OR FBR OR \"sales tax\" OR POS) restaurants when:7d", "category": "economy", "defaultCountry": "PK", "everyMin": 180 },
+        { "id": "gn-pk-foodsafety", "kind": "gnews", "query": "(\"food authority\" OR \"food safety\") Pakistan restaurants when:7d", "category": "hospitality", "defaultCountry": "PK", "everyMin": 180 },
+        { "id": "gn-pk-hospitality", "kind": "gnews", "query": "Pakistan (tourism OR foodpanda OR restaurant OR hotels) when:3d", "category": "hospitality", "defaultCountry": "PK", "everyMin": 120 },
+        { "id": "gn-hazara", "kind": "gnews", "query": "(Abbottabad OR Galiyat OR Hazara OR Nathia Gali) when:3d", "category": "pakistan", "defaultCountry": "PK", "everyMin": 120 },
+        { "id": "gn-palmoil", "kind": "gnews", "query": "\"palm oil\" prices when:2d", "category": "economy", "defaultCountry": null, "everyMin": 180 }
+      ] }
+  ]
+}

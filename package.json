@@ -1,0 +1,20 @@
+{
+  "name": "current-affairs-intel",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal rule-based current-affairs intelligence system (RSS + rules, no AI API required)",
+  "type": "module",
+  "engines": { "node": ">=22.13" },
+  "scripts": {
+    "run": "node scripts/run.js",
+    "test": "node --test --test-reporter=spec \"test/*.test.js\"",
+    "test-feed": "node scripts/test-feed.js",
+    "vapid": "node scripts/vapid.js",
+    "validate": "node scripts/validate-config.js",
+    "serve": "node scripts/serve.js"
+  },
+  "dependencies": {
+    "fast-xml-parser": "^5.2.0",
+    "web-push": "^3.6.7"
+  }
+}

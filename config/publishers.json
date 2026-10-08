@@ -1,0 +1,541 @@
+{
+  "_doc": "Tier lookup for items whose original publisher differs from the feed (Google News). Matched case-insensitively on the publisher name OR the article's domain. Anything unmatched = defaultTier (4 = unverified).",
+  "defaultTier": 4,
+  "publishers": [
+    {
+      "name": "State Bank of Pakistan",
+      "domains": [
+        "sbp.org.pk"
+      ],
+      "tier": 1,
+      "country": "PK"
+    },
+    {
+      "name": "International Monetary Fund",
+      "aliases": [
+        "IMF"
+      ],
+      "domains": [
+        "imf.org"
+      ],
+      "tier": 1
+    },
+    {
+      "name": "World Bank",
+      "domains": [
+        "worldbank.org"
+      ],
+      "tier": 1
+    },
+    {
+      "name": "Finance Division",
+      "aliases": [
+        "Ministry of Finance"
+      ],
+      "domains": [
+        "finance.gov.pk"
+      ],
+      "tier": 1,
+      "country": "PK"
+    },
+    {
+      "name": "Ministry of Foreign Affairs",
+      "domains": [
+        "mofa.gov.pk"
+      ],
+      "tier": 1,
+      "country": "PK"
+    },
+    {
+      "name": "Pakistan Bureau of Statistics",
+      "domains": [
+        "pbs.gov.pk"
+      ],
+      "tier": 1,
+      "country": "PK"
+    },
+    {
+      "name": "NEPRA",
+      "domains": [
+        "nepra.org.pk"
+      ],
+      "tier": 1,
+      "country": "PK"
+    },
+    {
+      "name": "OGRA",
+      "domains": [
+        "ogra.org.pk"
+      ],
+      "tier": 1,
+      "country": "PK"
+    },
+    {
+      "name": "FBR",
+      "domains": [
+        "fbr.gov.pk"
+      ],
+      "tier": 1,
+      "country": "PK"
+    },
+    {
+      "name": "UN News",
+      "domains": [
+        "news.un.org",
+        "un.org"
+      ],
+      "tier": 1
+    },
+    {
+      "name": "Reuters",
+      "domains": [
+        "reuters.com"
+      ],
+      "tier": 2
+    },
+    {
+      "name": "AP News",
+      "aliases": [
+        "Associated Press",
+        "The Associated Press"
+      ],
+      "domains": [
+        "apnews.com"
+      ],
+      "tier": 2
+    },
+    {
+      "name": "Bloomberg",
+      "aliases": [
+        "Bloomberg.com"
+      ],
+      "domains": [
+        "bloomberg.com"
+      ],
+      "tier": 2
+    },
+    {
+      "name": "Financial Times",
+      "domains": [
+        "ft.com"
+      ],
+      "tier": 2
+    },
+    {
+      "name": "The Wall Street Journal",
+      "aliases": [
+        "WSJ"
+      ],
+      "domains": [
+        "wsj.com"
+      ],
+      "tier": 2
+    },
+    {
+      "name": "BBC",
+      "aliases": [
+        "BBC News"
+      ],
+      "domains": [
+        "bbc.com",
+        "bbc.co.uk"
+      ],
+      "tier": 2
+    },
+    {
+      "name": "The Guardian",
+      "domains": [
+        "theguardian.com"
+      ],
+      "tier": 2
+    },
+    {
+      "name": "The New York Times",
+      "domains": [
+        "nytimes.com"
+      ],
+      "tier": 2
+    },
+    {
+      "name": "The Washington Post",
+      "domains": [
+        "washingtonpost.com"
+      ],
+      "tier": 2
+    },
+    {
+      "name": "The Economist",
+      "domains": [
+        "economist.com"
+      ],
+      "tier": 2
+    },
+    {
+      "name": "Al Jazeera",
+      "aliases": [
+        "Al Jazeera English"
+      ],
+      "domains": [
+        "aljazeera.com"
+      ],
+      "tier": 2
+    },
+    {
+      "name": "CNBC",
+      "domains": [
+        "cnbc.com"
+      ],
+      "tier": 2
+    },
+    {
+      "name": "Nikkei Asia",
+      "domains": [
+        "asia.nikkei.com"
+      ],
+      "tier": 2
+    },
+    {
+      "name": "Dawn",
+      "domains": [
+        "dawn.com"
+      ],
+      "tier": 2,
+      "country": "PK",
+      "aliases": [
+        "Dawn News English",
+        "Dawn News",
+        "DAWN.COM"
+      ]
+    },
+    {
+      "name": "The Express Tribune",
+      "aliases": [
+        "Express Tribune",
+        "Tribune",
+        "The Express Tribune Pakistan"
+      ],
+      "domains": [
+        "tribune.com.pk"
+      ],
+      "tier": 2,
+      "country": "PK"
+    },
+    {
+      "name": "Business Recorder",
+      "aliases": [
+        "Brecorder"
+      ],
+      "domains": [
+        "brecorder.com"
+      ],
+      "tier": 2,
+      "country": "PK"
+    },
+    {
+      "name": "Geo News",
+      "aliases": [
+        "Geo TV",
+        "Geo.tv",
+        "Geo News English",
+        "Geo English"
+      ],
+      "domains": [
+        "geo.tv"
+      ],
+      "tier": 2,
+      "country": "PK"
+    },
+    {
+      "name": "The News International",
+      "aliases": [
+        "The News",
+        "thenews.com.pk",
+        "The News Pakistan"
+      ],
+      "domains": [
+        "thenews.com.pk"
+      ],
+      "tier": 2,
+      "country": "PK"
+    },
+    {
+      "name": "Associated Press of Pakistan",
+      "aliases": [
+        "APP"
+      ],
+      "domains": [
+        "app.com.pk"
+      ],
+      "tier": 2,
+      "country": "PK"
+    },
+    {
+      "name": "Radio Pakistan",
+      "domains": [
+        "radio.gov.pk"
+      ],
+      "tier": 2,
+      "country": "PK"
+    },
+    {
+      "name": "The Hindu",
+      "domains": [
+        "thehindu.com"
+      ],
+      "tier": 2
+    },
+    {
+      "name": "South China Morning Post",
+      "aliases": [
+        "SCMP"
+      ],
+      "domains": [
+        "scmp.com"
+      ],
+      "tier": 2
+    },
+    {
+      "name": "France 24",
+      "domains": [
+        "france24.com"
+      ],
+      "tier": 2
+    },
+    {
+      "name": "DW",
+      "aliases": [
+        "Deutsche Welle",
+        "DW.com"
+      ],
+      "domains": [
+        "dw.com"
+      ],
+      "tier": 2
+    },
+    {
+      "name": "Profit by Pakistan Today",
+      "aliases": [
+        "Profit",
+        "Pakistan Today"
+      ],
+      "domains": [
+        "profit.pakistantoday.com.pk",
+        "pakistantoday.com.pk"
+      ],
+      "tier": 3,
+      "country": "PK"
+    },
+    {
+      "name": "ProPakistani",
+      "domains": [
+        "propakistani.pk"
+      ],
+      "tier": 3,
+      "country": "PK"
+    },
+    {
+      "name": "Mettis Global",
+      "domains": [
+        "mettisglobal.news"
+      ],
+      "tier": 3,
+      "country": "PK"
+    },
+    {
+      "name": "The Friday Times",
+      "domains": [
+        "thefridaytimes.com"
+      ],
+      "tier": 3,
+      "country": "PK"
+    },
+    {
+      "name": "Samaa",
+      "aliases": [
+        "SAMAA TV",
+        "Samaa English"
+      ],
+      "domains": [
+        "samaa.tv"
+      ],
+      "tier": 3,
+      "country": "PK"
+    },
+    {
+      "name": "ARY News",
+      "domains": [
+        "arynews.tv"
+      ],
+      "tier": 3,
+      "country": "PK"
+    },
+    {
+      "name": "Dunya News",
+      "domains": [
+        "dunyanews.tv"
+      ],
+      "tier": 3,
+      "country": "PK"
+    },
+    {
+      "name": "The Nation",
+      "domains": [
+        "nation.com.pk"
+      ],
+      "tier": 3,
+      "country": "PK"
+    },
+    {
+      "name": "Daily Times",
+      "domains": [
+        "dailytimes.com.pk"
+      ],
+      "tier": 3,
+      "country": "PK"
+    },
+    {
+      "name": "Arab News",
+      "aliases": [
+        "Arab News PK"
+      ],
+      "domains": [
+        "arabnews.com",
+        "arabnews.pk"
+      ],
+      "tier": 3
+    },
+    {
+      "name": "The National",
+      "domains": [
+        "thenationalnews.com"
+      ],
+      "tier": 3
+    },
+    {
+      "name": "Gulf News",
+      "domains": [
+        "gulfnews.com"
+      ],
+      "tier": 3
+    },
+    {
+      "name": "Khaleej Times",
+      "domains": [
+        "khaleejtimes.com"
+      ],
+      "tier": 3
+    },
+    {
+      "name": "Anadolu Ajansı",
+      "aliases": [
+        "Anadolu Agency"
+      ],
+      "domains": [
+        "aa.com.tr"
+      ],
+      "tier": 3
+    },
+    {
+      "name": "TRT World",
+      "domains": [
+        "trtworld.com"
+      ],
+      "tier": 3
+    },
+    {
+      "name": "Times of India",
+      "aliases": [
+        "The Times of India"
+      ],
+      "domains": [
+        "timesofindia.indiatimes.com"
+      ],
+      "tier": 3
+    },
+    {
+      "name": "Hindustan Times",
+      "domains": [
+        "hindustantimes.com"
+      ],
+      "tier": 3
+    },
+    {
+      "name": "NDTV",
+      "domains": [
+        "ndtv.com"
+      ],
+      "tier": 3
+    },
+    {
+      "name": "The Diplomat",
+      "domains": [
+        "thediplomat.com"
+      ],
+      "tier": 3
+    },
+    {
+      "name": "Xinhua",
+      "domains": [
+        "xinhuanet.com",
+        "news.cn"
+      ],
+      "tier": 3
+    },
+    {
+      "name": "CGTN",
+      "domains": [
+        "cgtn.com"
+      ],
+      "tier": 3
+    },
+    {
+      "name": "TASS",
+      "domains": [
+        "tass.com"
+      ],
+      "tier": 3
+    },
+    {
+      "name": "Global Times",
+      "domains": [
+        "globaltimes.cn"
+      ],
+      "tier": 4
+    },
+    {
+      "name": "RT",
+      "domains": [
+        "rt.com"
+      ],
+      "tier": 4
+    },
+    {
+      "name": "Sputnik",
+      "domains": [
+        "sputnikglobe.com"
+      ],
+      "tier": 4
+    },
+    {
+      "name": "OilPrice.com",
+      "domains": [
+        "oilprice.com"
+      ],
+      "tier": 3
+    },
+    {
+      "name": "Skift",
+      "domains": [
+        "skift.com"
+      ],
+      "tier": 3
+    },
+    {
+      "name": "TechCrunch",
+      "domains": [
+        "techcrunch.com"
+      ],
+      "tier": 3
+    }
+  ]
+}

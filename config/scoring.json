@@ -1,0 +1,554 @@
+{
+  "_doc": "Transparent importance scoring. Every number here appears in the story's 'Why it scored' breakdown. Conditions use the same language as rules.json (see README > Rule language).",
+  "geography": {
+    "pakistan": {
+      "points": 30,
+      "label": "Pakistan-related"
+    },
+    "majorInternational": {
+      "points": 15,
+      "label": "Major international (tracked country/region)"
+    },
+    "minorInternational": {
+      "points": 5,
+      "label": "Other international"
+    },
+    "majorCountries": [
+      "US",
+      "CN",
+      "IN",
+      "RU",
+      "IR",
+      "AF",
+      "SA",
+      "AE",
+      "QA",
+      "IL",
+      "PS",
+      "TR",
+      "GB",
+      "EU",
+      "UA",
+      "LB",
+      "SY",
+      "YE",
+      "IQ",
+      "ME",
+      "KZ"
+    ]
+  },
+  "topicFactors": [
+    {
+      "id": "pk-economy-core",
+      "label": "Pakistan economy (IMF, rates, rupee, inflation, taxes, energy prices)",
+      "points": 25,
+      "when": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "field": "topics",
+            "op": "hasAny",
+            "value": [
+              "imf",
+              "interest-rates",
+              "currency",
+              "inflation",
+              "debt",
+              "tax",
+              "energy",
+              "oil"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "pk-economy",
+      "label": "Pakistan economy (general)",
+      "points": 15,
+      "when": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "field": "topics",
+            "op": "hasAny",
+            "value": [
+              "pk-economy",
+              "trade",
+              "markets",
+              "companies",
+              "central-banks"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "pk-food-inputs",
+      "label": "Pakistan food inputs, wages & restaurant regulation",
+      "points": 20,
+      "when": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "field": "topics",
+            "op": "hasAny",
+            "value": [
+              "in-chicken",
+              "in-flour",
+              "in-dairy",
+              "in-oil",
+              "in-other",
+              "labour",
+              "pos",
+              "food-safety",
+              "consumer-spending"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "pk-security",
+      "label": "Pakistan security",
+      "points": 20,
+      "when": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "field": "topics",
+            "op": "hasAny",
+            "value": [
+              "security",
+              "conflict"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "pk-politics",
+      "label": "Pakistan politics / courts",
+      "points": 18,
+      "when": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "field": "topics",
+            "op": "hasAny",
+            "value": [
+              "politics",
+              "law"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "pk-foreign",
+      "label": "Pakistan foreign relations",
+      "points": 18,
+      "when": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "field": "topics",
+            "op": "hasAny",
+            "value": [
+              "foreign-policy",
+              "diplomacy",
+              "sanctions",
+              "trade"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "pk-other",
+      "label": "Pakistan infrastructure / society",
+      "points": 10,
+      "when": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "field": "topics",
+            "op": "hasAny",
+            "value": [
+              "infrastructure",
+              "society",
+              "tourism"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "geo-conflict",
+      "label": "Geopolitical conflict",
+      "points": 25,
+      "when": {
+        "all": [
+          {
+            "field": "topics",
+            "op": "hasAny",
+            "value": [
+              "conflict",
+              "nuclear"
+            ]
+          },
+          {
+            "field": "majorCountry",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "geo-diplomacy",
+      "label": "Geopolitics / diplomacy",
+      "points": 15,
+      "when": {
+        "all": [
+          {
+            "field": "topics",
+            "op": "hasAny",
+            "value": [
+              "diplomacy",
+              "sanctions",
+              "intl-orgs"
+            ]
+          },
+          {
+            "field": "majorCountry",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "global-macro",
+      "label": "Global macro (oil, rates, markets)",
+      "points": 15,
+      "when": {
+        "field": "topics",
+        "op": "hasAny",
+        "value": [
+          "oil",
+          "central-banks",
+          "interest-rates",
+          "gold",
+          "markets",
+          "trade",
+          "inflation",
+          "debt"
+        ]
+      }
+    },
+    {
+      "id": "elections",
+      "label": "Elections",
+      "points": 10,
+      "when": {
+        "field": "topics",
+        "op": "has",
+        "value": "elections"
+      }
+    },
+    {
+      "id": "tech-major",
+      "label": "Major technology development",
+      "points": 20,
+      "when": {
+        "field": "topics",
+        "op": "hasAny",
+        "value": [
+          "ai",
+          "semiconductors",
+          "cyber"
+        ]
+      }
+    },
+    {
+      "id": "tech-other",
+      "label": "Technology",
+      "points": 8,
+      "when": {
+        "field": "topics",
+        "op": "hasAny",
+        "value": [
+          "robotics",
+          "bigtech",
+          "consumer-tech"
+        ]
+      }
+    },
+    {
+      "id": "hospitality",
+      "label": "Restaurant / hospitality business",
+      "points": 20,
+      "when": {
+        "all": [
+          {
+            "field": "topics",
+            "op": "hasAny",
+            "value": [
+              "restaurants",
+              "food-delivery",
+              "food-safety",
+              "restaurant-tech"
+            ]
+          },
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hospitality-intl",
+      "label": "Global restaurant / travel industry",
+      "points": 10,
+      "when": {
+        "field": "topics",
+        "op": "hasAny",
+        "value": [
+          "restaurants",
+          "food-delivery",
+          "hotels",
+          "airlines",
+          "tourism"
+        ]
+      }
+    }
+  ],
+  "secondaryTopicBonus": {
+    "points": 5,
+    "label": "Spans several priority topics"
+  },
+  "tier": {
+    "1": {
+      "points": 20,
+      "label": "Tier 1 primary/official source"
+    },
+    "2": {
+      "points": 15,
+      "label": "Tier 2 high-quality source"
+    },
+    "3": {
+      "points": 10,
+      "label": "Tier 3 specialist source"
+    },
+    "4": {
+      "points": 0,
+      "label": "Tier 4 unverified source"
+    }
+  },
+  "urgency": {
+    "breaking": {
+      "points": 25,
+      "label": "Breaking development"
+    },
+    "major": {
+      "points": 15,
+      "label": "Major update (decision/agreement/price change)"
+    },
+    "normal": {
+      "points": 5,
+      "label": "Routine report"
+    },
+    "breakingPatterns": [
+      "\\bbreaking\\b",
+      "\\bblasts?\\b",
+      "\\bexplosions?\\b",
+      "\\bsuicide (attack|bomb)",
+      "\\bairstrikes?\\b",
+      "\\bair strikes?\\b",
+      "\\bmissiles? (strike|attack|launch|fired|hit)",
+      "\\bdeclares? (war|emergency)",
+      "\\bstate of emergency\\b",
+      "\\bmartial law\\b",
+      "\\bcoup\\b",
+      "\\bassassinat",
+      "\\bearthquake\\b",
+      "\\binvad(es|ed|ing)\\b",
+      "\\binvasion\\b",
+      "\\bshoots? down\\b",
+      "\\bshot down\\b",
+      "\\bceasefire (collapses|violat|breaks)",
+      "\\bresign(s|ed)\\b",
+      "\\bdeath toll\\b",
+      "\\bterror(ist)? attack",
+      "\\bnuclear test",
+      "\\bdevalu",
+      "\\bemergency (rate|meeting|session)",
+      "\\bdeclared? war\\b",
+      "\\bplane crash",
+      "\\bmassacre\\b",
+      "\\bdefault(s|ed)\\b"
+    ],
+    "majorPatterns": [
+      "\\bagree(s|d|ment)\\b",
+      "\\bstaff-level\\b",
+      "\\bdeal\\b",
+      "\\bapprov(es|ed|al)\\b",
+      "\\bannounc(es|ed|ement)\\b",
+      "\\bsigns?\\b",
+      "\\bsigned\\b",
+      "\\bhikes?\\b",
+      "\\bhiked\\b",
+      "\\braises?\\b",
+      "\\braised\\b",
+      "\\bcuts?\\b",
+      "\\bslash(es|ed)?\\b",
+      "\\bunveils?\\b",
+      "\\blaunch(es|ed)\\b",
+      "\\bpass(es|ed)\\b",
+      "\\bbans?\\b",
+      "\\bbanned\\b",
+      "\\bimposes?\\b",
+      "\\blifts?\\b",
+      "\\btranche\\b",
+      "\\bverdict\\b",
+      "\\bruling\\b",
+      "\\bsentenced\\b",
+      "\\barrested\\b",
+      "\\bsanctions?\\b",
+      "\\bescalat",
+      "\\bretaliat",
+      "\\bkill(s|ed)\\b",
+      "\\bnotif(ies|ied|ication)\\b",
+      "\\bplunges?\\b",
+      "\\bcrash(es|ed)\\b",
+      "\\brecord (high|low)\\b",
+      "\\bsoars?\\b",
+      "\\bunchanged\\b",
+      "\\bkeeps? (policy )?rate"
+    ]
+  },
+  "magnitude": {
+    "casualties": [
+      {
+        "gte": 50,
+        "points": 20,
+        "label": "Mass-casualty event (50+)"
+      },
+      {
+        "gte": 15,
+        "points": 12,
+        "label": "Major casualties (15+)"
+      },
+      {
+        "gte": 5,
+        "points": 4,
+        "label": "Casualties reported (5+)"
+      }
+    ],
+    "percent": [
+      {
+        "gte": 10,
+        "points": 6,
+        "label": "Large change (10%+)"
+      },
+      {
+        "gte": 3,
+        "points": 3,
+        "label": "Notable change (3%+)"
+      }
+    ]
+  },
+  "personal": {
+    "flameOnDirect": {
+      "points": 20,
+      "label": "Potential Flame On impact (direct cost / regulation)"
+    },
+    "flameOnIndirect": {
+      "points": 15,
+      "label": "Potential business impact (demand, competition, footfall)"
+    },
+    "watchlist": {
+      "points": 5,
+      "label": "On your watchlist"
+    },
+    "_note": "Only the larger of flameOnDirect / flameOnIndirect applies. Personal points can raise a story to Important but never on their own to Critical (see criticalRequires.minScoreExcludingPersonal)."
+  },
+  "corroboration": {
+    "perExtraPublisher": 3,
+    "max": 15,
+    "label": "Reported by multiple independent reliable publishers (tier 1-3)",
+    "widelyReported": {
+      "minPublishers": 8,
+      "points": 8,
+      "label": "Widely reported (8+ reliable publishers)"
+    },
+    "tier1Confirmed": {
+      "points": 5,
+      "label": "Confirmed by an official / primary source"
+    }
+  },
+  "penalties": {
+    "opinion": {
+      "points": -20,
+      "label": "Opinion / editorial (not news)"
+    },
+    "noise": {
+      "points": -30,
+      "label": "Sports / entertainment / lifestyle"
+    },
+    "liveBlog": {
+      "points": -5,
+      "label": "Live blog roll-up"
+    },
+    "noTopic": {
+      "points": -10,
+      "label": "No priority topic matched"
+    }
+  },
+  "levels": {
+    "critical": 105,
+    "important": 90,
+    "notable": 62
+  },
+  "criticalRequires": {
+    "minPublishers": 2,
+    "orTier": 1,
+    "minScoreExcludingPersonal": 105,
+    "label": "Critical alerts need 2+ independent reliable publishers or an official source",
+    "personalLabel": "Personal relevance alone cannot make a story Critical"
+  },
+  "tier4MaxLevel": "notable",
+  "recencyHalfLifeHours": 18,
+  "maxScore": 100
+}

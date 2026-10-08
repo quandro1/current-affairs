@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Personal rule-based current-affairs monitor">
+<meta name="theme-color" content="#0b1220">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Current Affairs">
+<title>Current Affairs</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="offline" class="offline" hidden>Offline — showing the last saved update</div>
+<main id="view" aria-live="polite"><div class="loading">Loading…</div></main>
+<nav class="tabbar" aria-label="Main">
+  <a href="#/" data-tab="home"><span class="ti">◉</span><span>Today</span></a>
+  <a href="#/changed" data-tab="changed"><span class="ti">↻<b id="chgBadge" class="badge" hidden></b></span><span>Changed</span></a>
+  <a href="#/briefings" data-tab="briefings"><span class="ti">☰</span><span>Briefings</span></a>
+  <a href="#/watch" data-tab="watch"><span class="ti">👁</span><span>Watch</span></a>
+  <a href="#/more" data-tab="more"><span class="ti">⋯</span><span>More</span></a>
+</nav>
+<div id="toast" class="toast" hidden></div>
+<script src="admin.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

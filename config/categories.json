@@ -1,0 +1,991 @@
+{
+  "_doc": "Sections are what you see on the dashboard. Topics are matched deterministically from keywords (case-insensitive, word-boundary, plural-tolerant; trailing * = prefix) and/or entities. A topic can belong to one section. noise=true topics are penalised in scoring.",
+  "sections": [
+    {
+      "id": "pakistan",
+      "label": "Pakistan",
+      "icon": "🇵🇰"
+    },
+    {
+      "id": "world",
+      "label": "World",
+      "icon": "🌎"
+    },
+    {
+      "id": "geopolitics",
+      "label": "Geopolitics",
+      "icon": "🧭"
+    },
+    {
+      "id": "economy",
+      "label": "Economy",
+      "icon": "💰"
+    },
+    {
+      "id": "technology",
+      "label": "Technology",
+      "icon": "🤖"
+    },
+    {
+      "id": "hospitality",
+      "label": "Tourism & Hospitality",
+      "icon": "🏨"
+    },
+    {
+      "id": "flameon",
+      "label": "Flame On",
+      "icon": "🍔"
+    }
+  ],
+  "topics": [
+    {
+      "id": "politics",
+      "label": "Politics",
+      "section": "pakistan",
+      "keywords": [
+        "parliament",
+        "National Assembly",
+        "Senate",
+        "prime minister",
+        "chief minister",
+        "cabinet",
+        "opposition",
+        "by-poll*",
+        "by-election*",
+        "coalition",
+        "constitutional amendment",
+        "no-confidence",
+        "protest*",
+        "governor",
+        "president Zardari"
+      ]
+    },
+    {
+      "id": "law",
+      "label": "Law & courts",
+      "section": "pakistan",
+      "keywords": [
+        "Supreme Court",
+        "High Court",
+        "verdict",
+        "ruling",
+        "bench",
+        "petition",
+        "acquit*",
+        "convict*",
+        "sentenced",
+        "bail",
+        "Constitutional Court",
+        "judiciary",
+        "military court*"
+      ]
+    },
+    {
+      "id": "security",
+      "label": "Security",
+      "section": "pakistan",
+      "keywords": [
+        "terror*",
+        "militant*",
+        "blast",
+        "bombing",
+        "suicide attack",
+        "suicide bomber",
+        "IED",
+        "gunmen",
+        "ambush",
+        "attack*",
+        "security forces",
+        "intelligence-based operation",
+        "IBO",
+        "khawarij",
+        "insurgen*",
+        "martyr*",
+        "kidnap*",
+        "curfew"
+      ]
+    },
+    {
+      "id": "foreign-policy",
+      "label": "Foreign policy",
+      "section": "pakistan",
+      "keywords": [
+        "foreign minister",
+        "foreign office",
+        "Foreign Office spokesperson",
+        "bilateral",
+        "ambassador",
+        "envoy",
+        "high commissioner",
+        "official visit",
+        "state visit",
+        "strategic dialogue",
+        "MoU*",
+        "memorandum of understanding"
+      ]
+    },
+    {
+      "id": "infrastructure",
+      "label": "Infrastructure",
+      "section": "pakistan",
+      "keywords": [
+        "motorway",
+        "ML-1",
+        "dam",
+        "port",
+        "railway*",
+        "metro",
+        "airport",
+        "highway",
+        "infrastructure",
+        "Diamer-Bhasha",
+        "Dasu",
+        "Mohmand dam"
+      ]
+    },
+    {
+      "id": "society",
+      "label": "Society",
+      "section": "pakistan",
+      "keywords": [
+        "polio",
+        "flood*",
+        "heatwave",
+        "smog",
+        "earthquake",
+        "dengue",
+        "education",
+        "health",
+        "census",
+        "population",
+        "climate"
+      ]
+    },
+    {
+      "id": "pk-economy",
+      "label": "Economy",
+      "section": "economy",
+      "keywords": [
+        "economy",
+        "economic",
+        "GDP",
+        "growth rate",
+        "fiscal",
+        "budget",
+        "deficit",
+        "current account",
+        "remittance*",
+        "foreign exchange reserves",
+        "forex reserves",
+        "reserves",
+        "privatisation",
+        "privatization",
+        "investment"
+      ]
+    },
+    {
+      "id": "inflation",
+      "label": "Inflation",
+      "section": "economy",
+      "keywords": [
+        "inflation",
+        "CPI",
+        "consumer price index",
+        "SPI",
+        "sensitive price indicator",
+        "price index",
+        "cost of living",
+        "core inflation",
+        "deflation"
+      ]
+    },
+    {
+      "id": "interest-rates",
+      "label": "Interest rates",
+      "section": "economy",
+      "keywords": [
+        "policy rate",
+        "interest rate*",
+        "monetary policy",
+        "rate cut",
+        "rate hike",
+        "basis points",
+        "bps",
+        "benchmark rate",
+        "key rate"
+      ]
+    },
+    {
+      "id": "currency",
+      "label": "Currency",
+      "section": "economy",
+      "keywords": [
+        "rupee",
+        "exchange rate",
+        "dollar rate",
+        "devaluation",
+        "depreciat*",
+        "interbank",
+        "open market rate",
+        "greenback",
+        "yuan",
+        "currency"
+      ]
+    },
+    {
+      "id": "imf",
+      "label": "IMF",
+      "section": "economy",
+      "entities": [
+        "imf"
+      ],
+      "keywords": [
+        "bailout",
+        "tranche",
+        "staff-level",
+        "loan programme",
+        "loan program",
+        "Extended Fund Facility",
+        "Resilience and Sustainability"
+      ]
+    },
+    {
+      "id": "debt",
+      "label": "Debt",
+      "section": "economy",
+      "keywords": [
+        "debt",
+        "rollover",
+        "Eurobond*",
+        "sukuk",
+        "default",
+        "borrowing",
+        "credit rating",
+        "rating upgrade",
+        "rating downgrade",
+        "T-bill*",
+        "PIB*"
+      ]
+    },
+    {
+      "id": "central-banks",
+      "label": "Central banks",
+      "section": "economy",
+      "entities": [
+        "sbp",
+        "fed",
+        "ecb"
+      ],
+      "keywords": [
+        "central bank",
+        "Bank of England",
+        "People's Bank of China",
+        "Reserve Bank of India"
+      ]
+    },
+    {
+      "id": "oil",
+      "label": "Oil & fuel",
+      "section": "economy",
+      "entities": [
+        "opec"
+      ],
+      "keywords": [
+        "oil price*",
+        "crude",
+        "Brent",
+        "WTI",
+        "petrol",
+        "diesel",
+        "petroleum",
+        "fuel price*",
+        "high-speed diesel",
+        "HSD",
+        "kerosene",
+        "oil supply",
+        "oil tanker*",
+        "barrel*",
+        "LPG"
+      ]
+    },
+    {
+      "id": "gold",
+      "label": "Gold",
+      "section": "economy",
+      "keywords": [
+        "gold price*",
+        "gold rate*",
+        "bullion",
+        "per tola",
+        "tola"
+      ]
+    },
+    {
+      "id": "markets",
+      "label": "Markets",
+      "section": "economy",
+      "entities": [
+        "psx"
+      ],
+      "keywords": [
+        "stock market",
+        "stocks",
+        "shares",
+        "Wall Street",
+        "Sensex",
+        "Nifty",
+        "Dow Jones",
+        "S&P 500",
+        "Nasdaq",
+        "bond yield*",
+        "sell-off",
+        "market crash",
+        "bourse"
+      ]
+    },
+    {
+      "id": "trade",
+      "label": "Trade",
+      "section": "economy",
+      "entities": [
+        "wto"
+      ],
+      "keywords": [
+        "exports",
+        "imports",
+        "tariff*",
+        "trade deal",
+        "trade war",
+        "free trade agreement",
+        "trade deficit",
+        "trade surplus",
+        "customs",
+        "trade talks",
+        "duty",
+        "duties"
+      ]
+    },
+    {
+      "id": "tax",
+      "label": "Taxes",
+      "section": "economy",
+      "entities": [
+        "fbr"
+      ],
+      "keywords": [
+        "tax*",
+        "sales tax",
+        "GST",
+        "income tax",
+        "withholding",
+        "Finance Bill",
+        "mini-budget",
+        "levy",
+        "petroleum levy",
+        "tax collection",
+        "revenue target"
+      ]
+    },
+    {
+      "id": "energy",
+      "label": "Energy",
+      "section": "economy",
+      "entities": [
+        "nepra",
+        "ogra"
+      ],
+      "keywords": [
+        "electricity",
+        "power tariff",
+        "electricity tariff",
+        "per unit",
+        "load-shedding",
+        "loadshedding",
+        "load shedding",
+        "circular debt",
+        "power sector",
+        "gas price*",
+        "gas tariff",
+        "gas supply",
+        "LNG",
+        "RLNG",
+        "fuel adjustment",
+        "FCA",
+        "IPPs",
+        "solar",
+        "net metering",
+        "OGRA"
+      ]
+    },
+    {
+      "id": "companies",
+      "label": "Major companies",
+      "section": "economy",
+      "keywords": [
+        "earnings",
+        "quarterly results",
+        "profit",
+        "revenue",
+        "acquisition",
+        "merger",
+        "IPO",
+        "layoffs",
+        "bankruptcy"
+      ]
+    },
+    {
+      "id": "conflict",
+      "label": "Conflict",
+      "section": "geopolitics",
+      "keywords": [
+        "war",
+        "airstrike*",
+        "air strike*",
+        "missile*",
+        "drone strike*",
+        "drone attack*",
+        "shelling",
+        "troops",
+        "invasion",
+        "invade*",
+        "ceasefire",
+        "truce",
+        "military operation",
+        "offensive",
+        "escalat*",
+        "retaliat*",
+        "border clash*",
+        "skirmish*",
+        "naval",
+        "warship*",
+        "tanker attack*",
+        "hostage*"
+      ]
+    },
+    {
+      "id": "diplomacy",
+      "label": "Diplomacy",
+      "section": "geopolitics",
+      "keywords": [
+        "summit",
+        "talks",
+        "peace deal",
+        "peace talks",
+        "treaty",
+        "negotiat*",
+        "mediat*",
+        "diplomat*",
+        "foreign ministers",
+        "joint statement",
+        "normalisation",
+        "normalization"
+      ]
+    },
+    {
+      "id": "sanctions",
+      "label": "Sanctions",
+      "section": "geopolitics",
+      "keywords": [
+        "sanction*",
+        "embargo",
+        "export controls",
+        "blacklist*",
+        "asset freeze"
+      ]
+    },
+    {
+      "id": "elections",
+      "label": "Elections",
+      "section": "world",
+      "keywords": [
+        "election*",
+        "polls",
+        "vote",
+        "voting",
+        "ballot",
+        "referendum",
+        "landslide",
+        "runoff",
+        "inauguration"
+      ]
+    },
+    {
+      "id": "intl-orgs",
+      "label": "International organizations",
+      "section": "world",
+      "entities": [
+        "un",
+        "world-bank",
+        "adb",
+        "fatf",
+        "nato",
+        "sco",
+        "brics",
+        "wto"
+      ],
+      "keywords": [
+        "United Nations",
+        "General Assembly",
+        "Security Council",
+        "G20",
+        "G7",
+        "ASEAN",
+        "Gulf Cooperation Council",
+        "GCC"
+      ]
+    },
+    {
+      "id": "nuclear",
+      "label": "Nuclear",
+      "section": "geopolitics",
+      "keywords": [
+        "nuclear",
+        "uranium",
+        "enrichment",
+        "IAEA",
+        "atomic"
+      ]
+    },
+    {
+      "id": "ai",
+      "label": "AI",
+      "section": "technology",
+      "entities": [
+        "openai",
+        "anthropic",
+        "deepseek"
+      ],
+      "keywords": [
+        "artificial intelligence",
+        "AI model*",
+        "AI regulation",
+        "AI safety",
+        "large language model*",
+        "LLM*",
+        "chatbot*",
+        "generative AI",
+        "GenAI",
+        "AGI",
+        "AI chip*",
+        "AI agent*",
+        "GPT-*",
+        "Gemini",
+        "Claude"
+      ],
+      "cs": [
+        "AI"
+      ]
+    },
+    {
+      "id": "semiconductors",
+      "label": "Semiconductors",
+      "section": "technology",
+      "entities": [
+        "nvidia",
+        "tsmc"
+      ],
+      "keywords": [
+        "semiconductor*",
+        "chipmaker*",
+        "microchip*",
+        "chips",
+        "foundry",
+        "lithography",
+        "ASML"
+      ]
+    },
+    {
+      "id": "robotics",
+      "label": "Robotics",
+      "section": "technology",
+      "keywords": [
+        "robot*",
+        "humanoid*",
+        "autonomous vehicle*",
+        "self-driving",
+        "robotaxi*"
+      ]
+    },
+    {
+      "id": "cyber",
+      "label": "Cybersecurity",
+      "section": "technology",
+      "keywords": [
+        "cyberattack*",
+        "cyber attack*",
+        "cybersecurity",
+        "data breach*",
+        "ransomware",
+        "hacker*",
+        "hacked",
+        "malware",
+        "spyware",
+        "zero-day",
+        "data leak*"
+      ]
+    },
+    {
+      "id": "bigtech",
+      "label": "Big Tech",
+      "section": "technology",
+      "entities": [
+        "google",
+        "microsoft",
+        "meta",
+        "apple",
+        "amazon",
+        "tesla"
+      ],
+      "keywords": [
+        "antitrust",
+        "Big Tech",
+        "tech giant*"
+      ]
+    },
+    {
+      "id": "consumer-tech",
+      "label": "Consumer tech",
+      "section": "technology",
+      "keywords": [
+        "smartphone*",
+        "app store",
+        "5G",
+        "broadband",
+        "internet shutdown",
+        "X ban",
+        "social media ban",
+        "PTA",
+        "VPN*",
+        "mobile internet",
+        "telecom*",
+        "spectrum auction"
+      ]
+    },
+    {
+      "id": "tourism",
+      "label": "Tourism",
+      "section": "hospitality",
+      "keywords": [
+        "tourism",
+        "tourist*",
+        "travel advisory",
+        "visa*",
+        "e-visa",
+        "holidaymaker*",
+        "travellers",
+        "travelers",
+        "Galiyat",
+        "Naran",
+        "Murree",
+        "northern areas",
+        "hill station*"
+      ]
+    },
+    {
+      "id": "hotels",
+      "label": "Hotels",
+      "section": "hospitality",
+      "entities": [
+        "hotel-groups"
+      ],
+      "keywords": [
+        "hotel*",
+        "resort*",
+        "hospitality",
+        "occupancy",
+        "guest house*"
+      ]
+    },
+    {
+      "id": "airlines",
+      "label": "Airlines",
+      "section": "hospitality",
+      "entities": [
+        "pia",
+        "airlines"
+      ],
+      "keywords": [
+        "airline*",
+        "flights",
+        "aviation",
+        "airfare*",
+        "air travel"
+      ]
+    },
+    {
+      "id": "restaurants",
+      "label": "Restaurant industry",
+      "section": "hospitality",
+      "entities": [
+        "mcdonalds",
+        "kfc",
+        "dominos",
+        "starbucks"
+      ],
+      "keywords": [
+        "restaurant*",
+        "fast food",
+        "fast-food",
+        "QSR",
+        "eatery",
+        "eateries",
+        "food chain*",
+        "franchise*",
+        "dine-in",
+        "diners",
+        "food street",
+        "pizza",
+        "burger*",
+        "café*",
+        "cafe*",
+        "bakery",
+        "bakeries"
+      ]
+    },
+    {
+      "id": "food-delivery",
+      "label": "Food delivery",
+      "section": "hospitality",
+      "entities": [
+        "foodpanda",
+        "delivery-platforms"
+      ],
+      "keywords": [
+        "food delivery",
+        "delivery app*",
+        "delivery rider*",
+        "riders",
+        "aggregator*",
+        "cloud kitchen*",
+        "dark kitchen*"
+      ]
+    },
+    {
+      "id": "in-chicken",
+      "label": "Chicken & poultry",
+      "section": "economy",
+      "keywords": [
+        "chicken",
+        "poultry",
+        "broiler*",
+        "eggs",
+        "feed mill*",
+        "poultry feed"
+      ]
+    },
+    {
+      "id": "in-flour",
+      "label": "Flour & wheat",
+      "section": "economy",
+      "keywords": [
+        "flour",
+        "atta",
+        "wheat",
+        "maida",
+        "flour mill*",
+        "wheat support price"
+      ]
+    },
+    {
+      "id": "in-dairy",
+      "label": "Cheese & dairy",
+      "section": "economy",
+      "keywords": [
+        "cheese",
+        "mozzarella",
+        "dairy",
+        "milk price*",
+        "butter",
+        "cream"
+      ]
+    },
+    {
+      "id": "in-oil",
+      "label": "Cooking oil",
+      "section": "economy",
+      "keywords": [
+        "cooking oil",
+        "edible oil",
+        "ghee",
+        "palm oil",
+        "vegetable oil",
+        "soybean oil",
+        "canola",
+        "sunflower oil"
+      ]
+    },
+    {
+      "id": "in-other",
+      "label": "Other food inputs",
+      "section": "economy",
+      "keywords": [
+        "sugar price*",
+        "tomato*",
+        "onion*",
+        "vegetable prices",
+        "spice*",
+        "packaging"
+      ]
+    },
+    {
+      "id": "labour",
+      "label": "Wages & labour",
+      "section": "economy",
+      "keywords": [
+        "minimum wage*",
+        "wages",
+        "labour law*",
+        "labor law*",
+        "workers",
+        "EOBI",
+        "social security",
+        "PESSI",
+        "overtime",
+        "trade union*"
+      ]
+    },
+    {
+      "id": "pos",
+      "label": "POS & digital tax",
+      "section": "economy",
+      "keywords": [
+        "point of sale",
+        "point-of-sale",
+        "Tier-1 retailer*",
+        "e-invoic*",
+        "POS integration",
+        "POS system*",
+        "real-time integration",
+        "fiscal invoice*",
+        "restaurant invoice*"
+      ],
+      "cs": [
+        "POS"
+      ]
+    },
+    {
+      "id": "food-safety",
+      "label": "Food safety",
+      "section": "hospitality",
+      "keywords": [
+        "food authority",
+        "food safety",
+        "Punjab Food Authority",
+        "PFA",
+        "KP Food Safety",
+        "Halal Food Authority",
+        "adulterat*",
+        "substandard",
+        "sealed",
+        "unhygienic",
+        "expired food",
+        "food poisoning",
+        "food inspector*",
+        "hygiene"
+      ]
+    },
+    {
+      "id": "consumer-spending",
+      "label": "Consumer spending",
+      "section": "economy",
+      "keywords": [
+        "consumer spending",
+        "consumer confidence",
+        "purchasing power",
+        "retail sales",
+        "demand slump",
+        "middle class",
+        "disposable income",
+        "footfall"
+      ]
+    },
+    {
+      "id": "restaurant-tech",
+      "label": "Restaurant technology",
+      "section": "technology",
+      "keywords": [
+        "kiosk*",
+        "ordering app*",
+        "restaurant tech*",
+        "loyalty app*",
+        "kitchen display",
+        "self-order*",
+        "QR menu*"
+      ]
+    },
+    {
+      "id": "sports",
+      "label": "Sports",
+      "section": "world",
+      "noise": true,
+      "keywords": [
+        "cricket",
+        "Test match",
+        "ODI",
+        "T20*",
+        "PSL",
+        "World Cup",
+        "football",
+        "Premier League",
+        "tennis",
+        "Olympic*",
+        "wicket*",
+        "innings",
+        "Grand Prix",
+        "Formula 1",
+        "hockey",
+        "tournament",
+        "Babar Azam",
+        "Shaheen"
+      ]
+    },
+    {
+      "id": "entertainment",
+      "label": "Entertainment",
+      "section": "world",
+      "noise": true,
+      "keywords": [
+        "actor",
+        "actress",
+        "film",
+        "movie*",
+        "drama serial",
+        "box office",
+        "celebrity",
+        "singer",
+        "album",
+        "Netflix series",
+        "Bollywood",
+        "Lollywood",
+        "showbiz",
+        "fashion",
+        "wedding",
+        "red carpet",
+        "Oscars",
+        "Emmy*",
+        "concert*"
+      ]
+    },
+    {
+      "id": "lifestyle",
+      "label": "Lifestyle",
+      "section": "world",
+      "noise": true,
+      "keywords": [
+        "horoscope",
+        "recipe*",
+        "how to",
+        "tips for",
+        "skincare",
+        "weight loss",
+        "quiz",
+        "puzzle",
+        "crossword",
+        "wordle",
+        "review:",
+        "best deals",
+        "deal of the day"
+      ]
+    }
+  ]
+}

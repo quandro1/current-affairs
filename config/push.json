@@ -1,0 +1,8 @@
+{
+  "_doc": "Public Web Push settings. vapidPublicKey is safe to publish; the private key lives only in the VAPID_PRIVATE_KEY secret. appUrl is used for links inside notifications.",
+  "vapidPublicKey": "BHOZoTZn1Z3JiMSmrJ15WU_hVg_crCPH7EldC827uQyaBImCrPz1ytCqbKqsXQbyhWjE5IEh44Yd495XokKSY94",
+  "subject": "https://github.com/quandro1/current-affairs",
+  "appUrl": "https://quandro1.github.io/current-affairs/",
+  "repo": "quandro1/current-affairs",
+  "branch": "main"
+}

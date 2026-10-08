@@ -1,0 +1,1344 @@
+{
+  "_doc": "Deterministic entity dictionary. aliases match case-insensitively on word boundaries; cs = case-SENSITIVE aliases (acronyms like US, IMF that collide with ordinary words). country = ISO code the entity implies. distinctive=false for very common entities (countries, big regions) so they don't glue unrelated stories together during clustering. A trailing * on an alias = prefix match.",
+  "regions": {
+    "middleEast": [
+      "IR",
+      "IL",
+      "PS",
+      "SA",
+      "AE",
+      "QA",
+      "LB",
+      "SY",
+      "YE",
+      "IQ",
+      "JO",
+      "EG",
+      "OM",
+      "KW",
+      "BH",
+      "TR"
+    ],
+    "gulf": [
+      "SA",
+      "AE",
+      "QA",
+      "OM",
+      "KW",
+      "BH"
+    ],
+    "southAsia": [
+      "PK",
+      "IN",
+      "AF",
+      "BD",
+      "LK",
+      "NP"
+    ],
+    "centralAsia": [
+      "KZ",
+      "UZ",
+      "TM",
+      "TJ",
+      "KG"
+    ],
+    "europe": [
+      "EU",
+      "GB",
+      "DE",
+      "FR",
+      "UA",
+      "IT",
+      "ES",
+      "PL"
+    ]
+  },
+  "entities": [
+    {
+      "id": "pakistan",
+      "name": "Pakistan",
+      "type": "country",
+      "country": "PK",
+      "aliases": [
+        "Pakistan",
+        "Pakistani",
+        "Pakistanis"
+      ],
+      "distinctive": false
+    },
+    {
+      "id": "india",
+      "name": "India",
+      "type": "country",
+      "country": "IN",
+      "aliases": [
+        "India",
+        "Indian",
+        "New Delhi"
+      ],
+      "distinctive": false
+    },
+    {
+      "id": "china",
+      "name": "China",
+      "type": "country",
+      "country": "CN",
+      "aliases": [
+        "China",
+        "Chinese",
+        "Beijing"
+      ],
+      "distinctive": false
+    },
+    {
+      "id": "usa",
+      "name": "United States",
+      "type": "country",
+      "country": "US",
+      "aliases": [
+        "United States",
+        "Washington",
+        "White House",
+        "American",
+        "Wall Street",
+        "Pentagon"
+      ],
+      "cs": [
+        "US",
+        "U.S.",
+        "USA"
+      ],
+      "distinctive": false
+    },
+    {
+      "id": "russia",
+      "name": "Russia",
+      "type": "country",
+      "country": "RU",
+      "aliases": [
+        "Russia",
+        "Russian",
+        "Kremlin",
+        "Moscow"
+      ],
+      "distinctive": false
+    },
+    {
+      "id": "iran",
+      "name": "Iran",
+      "type": "country",
+      "country": "IR",
+      "aliases": [
+        "Iran",
+        "Iranian",
+        "Tehran"
+      ],
+      "distinctive": false
+    },
+    {
+      "id": "afghanistan",
+      "name": "Afghanistan",
+      "type": "country",
+      "country": "AF",
+      "aliases": [
+        "Afghanistan",
+        "Afghan",
+        "Kabul",
+        "Taliban government"
+      ],
+      "distinctive": false
+    },
+    {
+      "id": "saudi",
+      "name": "Saudi Arabia",
+      "type": "country",
+      "country": "SA",
+      "aliases": [
+        "Saudi Arabia",
+        "Saudi",
+        "Riyadh",
+        "KSA"
+      ],
+      "distinctive": false
+    },
+    {
+      "id": "uae",
+      "name": "UAE",
+      "type": "country",
+      "country": "AE",
+      "aliases": [
+        "United Arab Emirates",
+        "Emirati",
+        "Abu Dhabi",
+        "Dubai"
+      ],
+      "cs": [
+        "UAE"
+      ],
+      "distinctive": false
+    },
+    {
+      "id": "qatar",
+      "name": "Qatar",
+      "type": "country",
+      "country": "QA",
+      "aliases": [
+        "Qatar",
+        "Qatari",
+        "Doha"
+      ],
+      "distinctive": false
+    },
+    {
+      "id": "turkey",
+      "name": "Turkey",
+      "type": "country",
+      "country": "TR",
+      "aliases": [
+        "Turkey",
+        "Türkiye",
+        "Turkiye",
+        "Turkish",
+        "Ankara"
+      ],
+      "distinctive": false
+    },
+    {
+      "id": "israel",
+      "name": "Israel",
+      "type": "country",
+      "country": "IL",
+      "aliases": [
+        "Israel",
+        "Israeli",
+        "Tel Aviv",
+        "IDF"
+      ],
+      "distinctive": false
+    },
+    {
+      "id": "palestine",
+      "name": "Palestine",
+      "type": "country",
+      "country": "PS",
+      "aliases": [
+        "Palestine",
+        "Palestinian",
+        "Gaza",
+        "West Bank",
+        "Hamas"
+      ],
+      "distinctive": false
+    },
+    {
+      "id": "lebanon",
+      "name": "Lebanon",
+      "type": "country",
+      "country": "LB",
+      "aliases": [
+        "Lebanon",
+        "Lebanese",
+        "Beirut",
+        "Hezbollah"
+      ],
+      "distinctive": false
+    },
+    {
+      "id": "syria",
+      "name": "Syria",
+      "type": "country",
+      "country": "SY",
+      "aliases": [
+        "Syria",
+        "Syrian",
+        "Damascus"
+      ],
+      "distinctive": false
+    },
+    {
+      "id": "yemen",
+      "name": "Yemen",
+      "type": "country",
+      "country": "YE",
+      "aliases": [
+        "Yemen",
+        "Yemeni",
+        "Houthi",
+        "Houthis"
+      ],
+      "distinctive": false
+    },
+    {
+      "id": "iraq",
+      "name": "Iraq",
+      "type": "country",
+      "country": "IQ",
+      "aliases": [
+        "Iraq",
+        "Iraqi",
+        "Baghdad"
+      ],
+      "distinctive": false
+    },
+    {
+      "id": "uk",
+      "name": "United Kingdom",
+      "type": "country",
+      "country": "GB",
+      "aliases": [
+        "United Kingdom",
+        "Britain",
+        "British",
+        "Downing Street"
+      ],
+      "cs": [
+        "UK"
+      ],
+      "distinctive": false
+    },
+    {
+      "id": "eu",
+      "name": "European Union",
+      "type": "country",
+      "country": "EU",
+      "aliases": [
+        "European Union",
+        "European Commission",
+        "Brussels",
+        "Europe",
+        "European",
+        "eurozone",
+        "euro zone"
+      ],
+      "cs": [
+        "EU"
+      ],
+      "distinctive": false
+    },
+    {
+      "id": "ukraine",
+      "name": "Ukraine",
+      "type": "country",
+      "country": "UA",
+      "aliases": [
+        "Ukraine",
+        "Ukrainian",
+        "Kyiv",
+        "Zelensky",
+        "Zelenskyy"
+      ],
+      "distinctive": false
+    },
+    {
+      "id": "bangladesh",
+      "name": "Bangladesh",
+      "type": "country",
+      "country": "BD",
+      "aliases": [
+        "Bangladesh",
+        "Bangladeshi",
+        "Dhaka"
+      ],
+      "distinctive": false
+    },
+    {
+      "id": "egypt",
+      "name": "Egypt",
+      "type": "country",
+      "country": "EG",
+      "aliases": [
+        "Egypt",
+        "Egyptian",
+        "Cairo"
+      ],
+      "distinctive": false
+    },
+    {
+      "id": "japan",
+      "name": "Japan",
+      "type": "country",
+      "country": "JP",
+      "aliases": [
+        "Japan",
+        "Japanese",
+        "Tokyo"
+      ],
+      "distinctive": false
+    },
+    {
+      "id": "central-asia",
+      "name": "Central Asia",
+      "type": "region",
+      "country": "KZ",
+      "aliases": [
+        "Central Asia",
+        "Uzbekistan",
+        "Kazakhstan",
+        "Turkmenistan",
+        "Tajikistan",
+        "Kyrgyzstan"
+      ],
+      "distinctive": false
+    },
+    {
+      "id": "middle-east",
+      "name": "Middle East",
+      "type": "region",
+      "country": "ME",
+      "aliases": [
+        "Middle East",
+        "Persian Gulf",
+        "Strait of Hormuz",
+        "Red Sea"
+      ],
+      "distinctive": false
+    },
+    {
+      "id": "islamabad",
+      "name": "Islamabad",
+      "type": "place",
+      "country": "PK",
+      "aliases": [
+        "Islamabad"
+      ],
+      "distinctive": false
+    },
+    {
+      "id": "karachi",
+      "name": "Karachi",
+      "type": "place",
+      "country": "PK",
+      "aliases": [
+        "Karachi"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "lahore",
+      "name": "Lahore",
+      "type": "place",
+      "country": "PK",
+      "aliases": [
+        "Lahore"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "peshawar",
+      "name": "Peshawar",
+      "type": "place",
+      "country": "PK",
+      "aliases": [
+        "Peshawar"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "quetta",
+      "name": "Quetta",
+      "type": "place",
+      "country": "PK",
+      "aliases": [
+        "Quetta"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "rawalpindi",
+      "name": "Rawalpindi",
+      "type": "place",
+      "country": "PK",
+      "aliases": [
+        "Rawalpindi",
+        "Pindi"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "abbottabad",
+      "name": "Abbottabad",
+      "type": "place",
+      "country": "PK",
+      "aliases": [
+        "Abbottabad",
+        "Hazara division",
+        "Galiyat",
+        "Nathia Gali",
+        "Murree",
+        "Mansehra",
+        "Naran",
+        "Kaghan"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "kp",
+      "name": "Khyber Pakhtunkhwa",
+      "type": "place",
+      "country": "PK",
+      "aliases": [
+        "Khyber Pakhtunkhwa",
+        "Khyber-Pakhtunkhwa",
+        "Waziristan",
+        "Bannu",
+        "Dera Ismail Khan",
+        "Bajaur",
+        "Kurram"
+      ],
+      "cs": [
+        "KP"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "balochistan",
+      "name": "Balochistan",
+      "type": "place",
+      "country": "PK",
+      "aliases": [
+        "Balochistan",
+        "Gwadar",
+        "Baloch"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "punjab-pk",
+      "name": "Punjab",
+      "type": "place",
+      "country": "PK",
+      "aliases": [
+        "Punjab government",
+        "Punjab Assembly",
+        "Maryam Nawaz",
+        "Faisalabad",
+        "Multan"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "sindh",
+      "name": "Sindh",
+      "type": "place",
+      "country": "PK",
+      "aliases": [
+        "Sindh",
+        "Hyderabad, Sindh"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "gilgit",
+      "name": "Gilgit-Baltistan",
+      "type": "place",
+      "country": "PK",
+      "aliases": [
+        "Gilgit-Baltistan",
+        "Gilgit",
+        "Hunza",
+        "Skardu"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "kashmir",
+      "name": "Kashmir",
+      "type": "place",
+      "country": "PK",
+      "aliases": [
+        "Kashmir",
+        "Line of Control",
+        "Azad Jammu",
+        "Muzaffarabad"
+      ],
+      "cs": [
+        "AJK",
+        "LoC",
+        "IIOJK"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "imf",
+      "name": "IMF",
+      "type": "org",
+      "country": null,
+      "aliases": [
+        "International Monetary Fund",
+        "Extended Fund Facility",
+        "staff-level agreement"
+      ],
+      "cs": [
+        "IMF",
+        "EFF"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "sbp",
+      "name": "State Bank of Pakistan",
+      "type": "org",
+      "country": "PK",
+      "aliases": [
+        "State Bank of Pakistan",
+        "State Bank",
+        "Monetary Policy Committee"
+      ],
+      "cs": [
+        "SBP",
+        "MPC"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "pk-finance-ministry",
+      "name": "Ministry of Finance (Pakistan)",
+      "type": "org",
+      "country": "PK",
+      "aliases": [
+        "Finance Ministry",
+        "Ministry of Finance",
+        "Finance Division",
+        "Aurangzeb"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "fbr",
+      "name": "FBR",
+      "type": "org",
+      "country": "PK",
+      "aliases": [
+        "Federal Board of Revenue"
+      ],
+      "cs": [
+        "FBR"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "nepra",
+      "name": "NEPRA",
+      "type": "org",
+      "country": "PK",
+      "aliases": [
+        "National Electric Power Regulatory Authority"
+      ],
+      "cs": [
+        "NEPRA",
+        "Nepra"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "ogra",
+      "name": "OGRA",
+      "type": "org",
+      "country": "PK",
+      "aliases": [
+        "Oil and Gas Regulatory Authority"
+      ],
+      "cs": [
+        "OGRA",
+        "Ogra"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "psx",
+      "name": "Pakistan Stock Exchange",
+      "type": "org",
+      "country": "PK",
+      "aliases": [
+        "Pakistan Stock Exchange",
+        "KSE-100",
+        "KSE 100"
+      ],
+      "cs": [
+        "PSX"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "cpec",
+      "name": "CPEC",
+      "type": "org",
+      "country": "PK",
+      "aliases": [
+        "China-Pakistan Economic Corridor"
+      ],
+      "cs": [
+        "CPEC"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "sifc",
+      "name": "SIFC",
+      "type": "org",
+      "country": "PK",
+      "aliases": [
+        "Special Investment Facilitation Council"
+      ],
+      "cs": [
+        "SIFC"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "pk-supreme-court",
+      "name": "Supreme Court of Pakistan",
+      "type": "org",
+      "country": "PK",
+      "aliases": [
+        "Supreme Court of Pakistan",
+        "Federal Constitutional Court",
+        "Chief Justice of Pakistan"
+      ],
+      "cs": [
+        "CJP"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "ecp",
+      "name": "Election Commission of Pakistan",
+      "type": "org",
+      "country": "PK",
+      "aliases": [
+        "Election Commission of Pakistan"
+      ],
+      "cs": [
+        "ECP"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "pk-army",
+      "name": "Pakistan Army",
+      "type": "org",
+      "country": "PK",
+      "aliases": [
+        "Pakistan Army",
+        "Inter-Services Public Relations",
+        "security forces",
+        "army chief",
+        "Field Marshal"
+      ],
+      "cs": [
+        "ISPR",
+        "COAS"
+      ],
+      "distinctive": false
+    },
+    {
+      "id": "pti",
+      "name": "PTI",
+      "type": "party",
+      "country": "PK",
+      "aliases": [
+        "Pakistan Tehreek-e-Insaf",
+        "Imran Khan"
+      ],
+      "cs": [
+        "PTI"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "pmln",
+      "name": "PML-N",
+      "type": "party",
+      "country": "PK",
+      "aliases": [
+        "Pakistan Muslim League-Nawaz",
+        "Nawaz Sharif"
+      ],
+      "cs": [
+        "PML-N",
+        "PMLN"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "ppp",
+      "name": "PPP",
+      "type": "party",
+      "country": "PK",
+      "aliases": [
+        "Pakistan Peoples Party",
+        "Bilawal Bhutto",
+        "Bilawal",
+        "Zardari"
+      ],
+      "cs": [
+        "PPP"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "shehbaz",
+      "name": "Shehbaz Sharif",
+      "type": "person",
+      "country": "PK",
+      "aliases": [
+        "Shehbaz Sharif",
+        "Shahbaz Sharif",
+        "PM Shehbaz"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "asim-munir",
+      "name": "Asim Munir",
+      "type": "person",
+      "country": "PK",
+      "aliases": [
+        "Asim Munir"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "ishaq-dar",
+      "name": "Ishaq Dar",
+      "type": "person",
+      "country": "PK",
+      "aliases": [
+        "Ishaq Dar"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "ttp",
+      "name": "TTP",
+      "type": "group",
+      "country": "PK",
+      "aliases": [
+        "Tehreek-e-Taliban Pakistan",
+        "Fitna al-Khawarij",
+        "khawarij"
+      ],
+      "cs": [
+        "TTP"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "bla",
+      "name": "BLA",
+      "type": "group",
+      "country": "PK",
+      "aliases": [
+        "Balochistan Liberation Army",
+        "Fitna al-Hindustan"
+      ],
+      "cs": [
+        "BLA"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "pia",
+      "name": "PIA",
+      "type": "company",
+      "country": "PK",
+      "aliases": [
+        "Pakistan International Airlines"
+      ],
+      "cs": [
+        "PIA"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "foodpanda",
+      "name": "foodpanda",
+      "type": "company",
+      "country": "PK",
+      "aliases": [
+        "foodpanda",
+        "food panda"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "un",
+      "name": "United Nations",
+      "type": "org",
+      "country": null,
+      "aliases": [
+        "United Nations",
+        "Security Council",
+        "UN General Assembly",
+        "Guterres"
+      ],
+      "cs": [
+        "UN",
+        "UNSC"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "world-bank",
+      "name": "World Bank",
+      "type": "org",
+      "country": null,
+      "aliases": [
+        "World Bank"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "adb",
+      "name": "Asian Development Bank",
+      "type": "org",
+      "country": null,
+      "aliases": [
+        "Asian Development Bank"
+      ],
+      "cs": [
+        "ADB"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "fatf",
+      "name": "FATF",
+      "type": "org",
+      "country": null,
+      "aliases": [
+        "Financial Action Task Force"
+      ],
+      "cs": [
+        "FATF"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "opec",
+      "name": "OPEC",
+      "type": "org",
+      "country": null,
+      "aliases": [
+        "OPEC+"
+      ],
+      "cs": [
+        "OPEC"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "fed",
+      "name": "US Federal Reserve",
+      "type": "org",
+      "country": "US",
+      "aliases": [
+        "Federal Reserve",
+        "Jerome Powell",
+        "FOMC"
+      ],
+      "cs": [
+        "Fed"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "ecb",
+      "name": "European Central Bank",
+      "type": "org",
+      "country": "EU",
+      "aliases": [
+        "European Central Bank"
+      ],
+      "cs": [
+        "ECB"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "nato",
+      "name": "NATO",
+      "type": "org",
+      "country": null,
+      "aliases": [
+        "North Atlantic Treaty Organization"
+      ],
+      "cs": [
+        "NATO",
+        "Nato"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "sco",
+      "name": "SCO",
+      "type": "org",
+      "country": null,
+      "aliases": [
+        "Shanghai Cooperation Organisation",
+        "Shanghai Cooperation Organization"
+      ],
+      "cs": [
+        "SCO"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "brics",
+      "name": "BRICS",
+      "type": "org",
+      "country": null,
+      "aliases": [],
+      "cs": [
+        "BRICS"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "wto",
+      "name": "WTO",
+      "type": "org",
+      "country": null,
+      "aliases": [
+        "World Trade Organization"
+      ],
+      "cs": [
+        "WTO"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "moodys",
+      "name": "Credit rating agencies",
+      "type": "org",
+      "country": null,
+      "aliases": [
+        "Moody's",
+        "Fitch Ratings",
+        "Fitch",
+        "S&P Global Ratings",
+        "Standard & Poor's"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "trump",
+      "name": "Donald Trump",
+      "type": "person",
+      "country": "US",
+      "aliases": [
+        "Donald Trump",
+        "Trump"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "modi",
+      "name": "Narendra Modi",
+      "type": "person",
+      "country": "IN",
+      "aliases": [
+        "Narendra Modi",
+        "Modi"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "xi",
+      "name": "Xi Jinping",
+      "type": "person",
+      "country": "CN",
+      "aliases": [
+        "Xi Jinping"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "putin",
+      "name": "Vladimir Putin",
+      "type": "person",
+      "country": "RU",
+      "aliases": [
+        "Vladimir Putin",
+        "Putin"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "netanyahu",
+      "name": "Benjamin Netanyahu",
+      "type": "person",
+      "country": "IL",
+      "aliases": [
+        "Netanyahu"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "khamenei",
+      "name": "Ali Khamenei",
+      "type": "person",
+      "country": "IR",
+      "aliases": [
+        "Khamenei"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "mbs",
+      "name": "Mohammed bin Salman",
+      "type": "person",
+      "country": "SA",
+      "aliases": [
+        "Mohammed bin Salman",
+        "Crown Prince Mohammed"
+      ],
+      "cs": [
+        "MBS"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "openai",
+      "name": "OpenAI",
+      "type": "company",
+      "country": "US",
+      "aliases": [
+        "OpenAI",
+        "ChatGPT",
+        "Sam Altman"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "anthropic",
+      "name": "Anthropic",
+      "type": "company",
+      "country": "US",
+      "aliases": [
+        "Anthropic",
+        "Claude AI"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "google",
+      "name": "Google",
+      "type": "company",
+      "country": "US",
+      "aliases": [
+        "Google",
+        "Alphabet",
+        "DeepMind",
+        "Gemini AI",
+        "Google Gemini"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "microsoft",
+      "name": "Microsoft",
+      "type": "company",
+      "country": "US",
+      "aliases": [
+        "Microsoft",
+        "Copilot"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "meta",
+      "name": "Meta",
+      "type": "company",
+      "country": "US",
+      "aliases": [
+        "Meta Platforms",
+        "Facebook",
+        "Instagram",
+        "WhatsApp",
+        "Zuckerberg"
+      ],
+      "cs": [
+        "Meta"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "apple",
+      "name": "Apple",
+      "type": "company",
+      "country": "US",
+      "aliases": [
+        "iPhone",
+        "Tim Cook"
+      ],
+      "cs": [
+        "Apple"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "nvidia",
+      "name": "Nvidia",
+      "type": "company",
+      "country": "US",
+      "aliases": [
+        "Nvidia",
+        "Jensen Huang"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "tsmc",
+      "name": "TSMC",
+      "type": "company",
+      "country": "TW",
+      "aliases": [
+        "Taiwan Semiconductor"
+      ],
+      "cs": [
+        "TSMC"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "amazon",
+      "name": "Amazon",
+      "type": "company",
+      "country": "US",
+      "aliases": [
+        "Amazon",
+        "AWS"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "tesla",
+      "name": "Tesla / xAI",
+      "type": "company",
+      "country": "US",
+      "aliases": [
+        "Tesla",
+        "xAI",
+        "Elon Musk",
+        "Starlink",
+        "SpaceX"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "deepseek",
+      "name": "Chinese AI labs",
+      "type": "company",
+      "country": "CN",
+      "aliases": [
+        "DeepSeek",
+        "Alibaba",
+        "Qwen",
+        "Huawei",
+        "Baidu",
+        "Tencent",
+        "ByteDance",
+        "TikTok"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "mcdonalds",
+      "name": "McDonald's",
+      "type": "company",
+      "country": null,
+      "aliases": [
+        "McDonald's",
+        "McDonalds"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "kfc",
+      "name": "KFC / Yum Brands",
+      "type": "company",
+      "country": null,
+      "aliases": [
+        "KFC",
+        "Yum Brands",
+        "Yum! Brands",
+        "Pizza Hut",
+        "Taco Bell"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "dominos",
+      "name": "Domino's",
+      "type": "company",
+      "country": null,
+      "aliases": [
+        "Domino's",
+        "Dominos Pizza"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "starbucks",
+      "name": "Starbucks",
+      "type": "company",
+      "country": null,
+      "aliases": [
+        "Starbucks"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "delivery-platforms",
+      "name": "Delivery platforms",
+      "type": "company",
+      "country": null,
+      "aliases": [
+        "Uber Eats",
+        "DoorDash",
+        "Deliveroo",
+        "Delivery Hero",
+        "Talabat",
+        "Zomato",
+        "Swiggy",
+        "Careem"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "hotel-groups",
+      "name": "Hotel groups",
+      "type": "company",
+      "country": null,
+      "aliases": [
+        "Marriott",
+        "Hilton",
+        "Hyatt",
+        "Accor",
+        "IHG",
+        "Serena Hotels",
+        "Pearl Continental",
+        "Hashoo"
+      ],
+      "distinctive": true
+    },
+    {
+      "id": "airlines",
+      "name": "Airlines",
+      "type": "company",
+      "country": null,
+      "aliases": [
+        "Emirates airline",
+        "Qatar Airways",
+        "Etihad",
+        "flydubai",
+        "Airblue",
+        "AirSial",
+        "Fly Jinnah",
+        "SereneAir"
+      ],
+      "distinctive": true
+    }
+  ]
+}

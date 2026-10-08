@@ -1,0 +1,6 @@
+node_modules/
+state/
+public/
+app/_frame.html
+*.log
+.env

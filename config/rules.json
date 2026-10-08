@@ -1,0 +1,313 @@
+{
+  "_doc": "IF/THEN rules applied AFTER base scoring, in order. 'if' uses the rule language (all/any/not + {field, op, value}). 'then' may contain: addScore (number), minLevel / maxLevel (critical|important|notable|background), mute (true = never notify), flag ({name: true}), label (shown in 'why it triggered'). Fields: countries, topics, entities, sections, tier, sourceCount, urgency, direction, pct, casualties, score, text, title, flameOn, watch, opinion, noise, majorCountry, ageHours.",
+  "rules": [
+    {
+      "id": "pk-economy-major",
+      "description": "Spec rule: Pakistan + economy + high (non-personal) score => critical, still subject to the corroboration requirement.",
+      "enabled": true,
+      "if": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "field": "sections",
+            "op": "has",
+            "value": "economy"
+          },
+          {
+            "field": "baseScore",
+            "op": "gte",
+            "value": 110
+          },
+          {
+            "field": "urgency",
+            "op": "in",
+            "value": [
+              "breaking",
+              "major"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "minLevel": "critical",
+        "label": "Rule: Pakistan economy + high importance"
+      }
+    },
+    {
+      "id": "pk-mass-casualty",
+      "description": "Major attack or disaster in Pakistan.",
+      "enabled": true,
+      "if": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "field": "casualties",
+            "op": "gte",
+            "value": 15
+          },
+          {
+            "field": "topics",
+            "op": "hasAny",
+            "value": [
+              "security",
+              "conflict",
+              "society"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "minLevel": "critical",
+        "label": "Rule: major casualties in Pakistan"
+      }
+    },
+    {
+      "id": "pk-india-security",
+      "description": "Pakistan-India security / military developments.",
+      "enabled": true,
+      "if": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "hasAll",
+            "value": [
+              "PK",
+              "IN"
+            ]
+          },
+          {
+            "field": "topics",
+            "op": "hasAny",
+            "value": [
+              "conflict",
+              "security",
+              "nuclear"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "addScore": 10,
+        "label": "Rule: Pakistan–India security"
+      }
+    },
+    {
+      "id": "routine-tariff-adjustment",
+      "description": "Monthly fuel-cost adjustments and routine tariff tweaks are Important at most.",
+      "enabled": true,
+      "if": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "field": "text",
+            "op": "matches",
+            "value": "fuel (charges |cost |price )?adjustment|\bFCA\b|quarterly (tariff )?adjustment|\bQTA\b"
+          }
+        ]
+      },
+      "then": {
+        "maxLevel": "important",
+        "label": "Rule: routine tariff adjustment capped at Important"
+      }
+    },
+    {
+      "id": "pk-afghan-border",
+      "description": "Pakistan-Afghanistan border / TTP developments.",
+      "enabled": true,
+      "if": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "hasAll",
+            "value": [
+              "PK",
+              "AF"
+            ]
+          },
+          {
+            "field": "topics",
+            "op": "hasAny",
+            "value": [
+              "conflict",
+              "security",
+              "diplomacy",
+              "trade"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "addScore": 6,
+        "label": "Rule: Pakistan–Afghanistan"
+      }
+    },
+    {
+      "id": "conflict-oil",
+      "description": "Conflict with oil-supply exposure (Gulf, Hormuz, tankers).",
+      "enabled": true,
+      "if": {
+        "all": [
+          {
+            "field": "topics",
+            "op": "has",
+            "value": "conflict"
+          },
+          {
+            "field": "topics",
+            "op": "has",
+            "value": "oil"
+          }
+        ]
+      },
+      "then": {
+        "addScore": 8,
+        "label": "Rule: conflict with oil-market exposure"
+      }
+    },
+    {
+      "id": "rate-decision",
+      "description": "SBP policy-rate decisions always matter.",
+      "enabled": true,
+      "if": {
+        "all": [
+          {
+            "field": "entities",
+            "op": "has",
+            "value": "sbp"
+          },
+          {
+            "field": "topics",
+            "op": "has",
+            "value": "interest-rates"
+          },
+          {
+            "field": "urgency",
+            "op": "in",
+            "value": [
+              "breaking",
+              "major"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "addScore": 10,
+        "minLevel": "important",
+        "label": "Rule: SBP rate decision"
+      }
+    },
+    {
+      "id": "pk-fuel-price-change",
+      "description": "Fortnightly petrol/diesel price notifications.",
+      "enabled": true,
+      "if": {
+        "all": [
+          {
+            "field": "countries",
+            "op": "has",
+            "value": "PK"
+          },
+          {
+            "field": "text",
+            "op": "matches",
+            "value": "\\b(petrol|diesel|HSD|fuel)\\b.*\\b(price|prices|rate|rates)\\b|\\b(price|prices)\\b.*\\b(petrol|diesel|HSD)\\b"
+          },
+          {
+            "field": "direction",
+            "op": "in",
+            "value": [
+              "up",
+              "down"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "addScore": 5,
+        "minLevel": "important",
+        "maxLevel": "important",
+        "label": "Rule: Pakistan fuel price revision (routine: always Important, never Critical)"
+      }
+    },
+    {
+      "id": "opinion-cap",
+      "description": "Opinion pieces never interrupt.",
+      "enabled": true,
+      "if": {
+        "field": "opinion",
+        "op": "eq",
+        "value": true
+      },
+      "then": {
+        "maxLevel": "notable",
+        "mute": true,
+        "label": "Rule: opinion pieces are never pushed"
+      }
+    },
+    {
+      "id": "noise-cap",
+      "description": "Sports / entertainment / lifestyle stay in the background.",
+      "enabled": true,
+      "if": {
+        "all": [
+          {
+            "field": "noise",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "field": "topics",
+            "op": "hasNone",
+            "value": [
+              "conflict",
+              "security",
+              "pk-economy",
+              "imf"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "maxLevel": "background",
+        "mute": true,
+        "label": "Rule: sport/entertainment/lifestyle kept in background"
+      }
+    },
+    {
+      "id": "minor-product-news",
+      "description": "Do not report every minor product update.",
+      "enabled": true,
+      "if": {
+        "all": [
+          {
+            "field": "sections",
+            "op": "has",
+            "value": "technology"
+          },
+          {
+            "field": "text",
+            "op": "matches",
+            "value": "\\b(review|hands-on|deal|deals|discount|sale|best .* to buy|how to|tips)\\b"
+          }
+        ]
+      },
+      "then": {
+        "maxLevel": "background",
+        "mute": true,
+        "label": "Rule: minor product/consumer piece"
+      }
+    }
+  ]
+}
