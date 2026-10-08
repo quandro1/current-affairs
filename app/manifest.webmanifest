@@ -2,7 +2,7 @@
   "name": "Current Affairs — Personal Intelligence",
   "short_name": "Current Affairs",
   "description": "Personal rule-based current-affairs monitor: what you actually need to know.",
-  "id": "./",
+  "id": "/current-affairs/",
   "start_url": "./#/",
   "scope": "./",
   "display": "standalone",

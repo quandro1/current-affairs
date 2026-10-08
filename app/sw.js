@@ -1,6 +1,6 @@
 // Service worker: offline shell + network-first data + Web Push display.
 // Bump CACHE on every app release so installed copies pick up the new shell.
-const CACHE = 'ca-v1.0.0';
+const CACHE = 'ca-v1.0.1';
 const SHELL = ['./', './index.html', './styles.css', './app.js', './admin.js', './manifest.webmanifest', './icons/icon-192.png', './icons/icon-512.png', './icons/badge-96.png', './icons/favicon-32.png'];
 
 self.addEventListener('install', e => {
